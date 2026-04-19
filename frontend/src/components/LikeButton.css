@@ -1,0 +1,84 @@
+.like-btn {
+  background: transparent;
+  border: 1px solid #e3e5e8;
+  /* 테두리 살짝 추가 */
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  color: #555;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  /* 중요: 숫자 밖으로 나가는 것 자르기 */
+}
+
+.like-btn:hover {
+  border-color: #007BFF;
+  color: #007BFF;
+}
+
+.like-btn.liked {
+  color: #007BFF;
+  background-color: transparent;
+  border-color: #007BFF;
+}
+
+/* --- 숫자 애니메이션 핵심 --- */
+
+/* 숫자를 감싸는 고정된 틀 (마스크 역할) */
+.count-container {
+  position: relative;
+  display: inline-flex;
+  height: 1.2em;
+  /* 숫자 높이만큼 고정 */
+  overflow: hidden;
+  /* 위아래로 움직이는 숫자를 안 보이게 자름 */
+  align-items: center;
+}
+
+.count-text {
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+/* 숫자가 증가할 때: 아래에서 위로 등장 */
+.count-text.up {
+  animation: slideUp 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 숫자가 감소할 때: 위에서 아래로 등장 */
+.count-text.down {
+  animation: slideDown 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    /* 아래에 숨어있다가 */
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    /* 제자리로 */
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    /* 위에 숨어있다가 */
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    /* 제자리로 */
+    opacity: 1;
+  }
+}

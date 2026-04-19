@@ -1,0 +1,50 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #fefefd;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Global Image Hover Effect */
+img:not(.logo-image) {
+  transition: all 0.3s ease;
+}
+
+/* Global Image Reset: Apply 5px rounded corners */
+img,
+.article-image,
+.grid-image,
+.main-image-column img,
+.cat-box-img,
+.global-img,
+.profile-image,
+.thumbnail,
+.image-placeholder,
+.article-image-center {
+  border-radius: 5px !important;
+}
+
+img:not(.logo-image):hover {
+  opacity: 0.8;
+  filter: grayscale(30%);
+}

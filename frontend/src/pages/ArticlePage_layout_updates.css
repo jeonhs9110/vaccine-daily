@@ -1,0 +1,81 @@
+/* =========================================================
+   New Layout: Metadata Row (Date + Buttons)
+   ========================================================= */
+.ArticlePage .article-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    /* Divider moved here */
+}
+
+/* Remove old divider since we use the row border now, or keep it */
+.ArticlePage .article-head-divider {
+    display: none;
+    /* Hide old HR */
+}
+
+.ArticlePage .meta-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.ArticlePage .meta-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Remove old action-button-bar styles if conflicting */
+.ArticlePage .action-button-bar {
+    /* Deprecated but kept for transition, or reset */
+    display: none;
+}
+
+/* Override Popup Position to be BELOW the button */
+.ArticlePage .font-size-popup-unified {
+    top: 100%;
+    bottom: auto;
+    margin-top: 8px;
+    left: auto;
+    right: 0;
+    /* Align to right since buttons are on right */
+    transform: none;
+}
+
+/* Ensure Font Size applies to Comparison and Timeline */
+.ArticlePage.fs-1 .comparison-item,
+.ArticlePage.fs-1 .timeline-item,
+.ArticlePage.fs-1 .evidence-item {
+    font-size: 0.85rem !important;
+}
+
+.ArticlePage.fs-2 .comparison-item,
+.ArticlePage.fs-2 .timeline-item,
+.ArticlePage.fs-2 .evidence-item {
+    font-size: 0.95rem !important;
+}
+
+.ArticlePage.fs-3 .comparison-item,
+.ArticlePage.fs-3 .timeline-item,
+.ArticlePage.fs-3 .evidence-item {
+    font-size: 1rem !important;
+}
+
+.ArticlePage.fs-4 .comparison-item,
+.ArticlePage.fs-4 .timeline-item,
+.ArticlePage.fs-4 .evidence-item {
+    font-size: 1.15rem !important;
+}
+
+.ArticlePage.fs-5 .comparison-item,
+.ArticlePage.fs-5 .timeline-item,
+.ArticlePage.fs-5 .evidence-item {
+    font-size: 1.3rem !important;
+}

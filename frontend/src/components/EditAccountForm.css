@@ -1,0 +1,239 @@
+/* Reset container for embedded use in MyPage */
+.edit-account-container {
+    display: block;
+    min-height: auto;
+    background-color: transparent;
+    width: 100%;
+}
+
+/* Remove Card Style - blend into content area */
+.edit-account-container .edit-account-box {
+    background-color: transparent;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+/* Remove centered title and description since MyPage already has a header if needed, 
+   but user wants left alignment so let's style them to be left-aligned and cleaner */
+.edit-account-container h2 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.edit-account-container .description {
+    text-align: left;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+/* Form Layout */
+.edit-account-container .input-group {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-account-container .input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.edit-account-container .half {
+    width: 50%;
+}
+
+.edit-account-container .edit-account-box label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+    display: block;
+    text-align: left;
+}
+
+.edit-account-container .sub-label {
+    font-weight: normal;
+    font-size: 12px;
+    color: #888;
+    margin-left: 0;
+}
+
+/* Inputs */
+.edit-account-container .edit-account-box input[type="text"],
+.edit-account-container .edit-account-box input[type="password"],
+.edit-account-container .edit-account-box input[type="email"],
+.edit-account-container .edit-account-box select {
+    width: 100%;
+    padding: 0 14px;
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.2s;
+    background-color: #fff;
+    color: #333;
+}
+
+.edit-account-container .edit-account-box input:focus,
+.edit-account-container .edit-account-box select:focus {
+    border-color: #333;
+    outline: none;
+}
+
+/* Joined Input Group (Password) */
+.edit-account-container .input-group-joined {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.edit-account-container .input-row-joined {
+    position: relative;
+    height: 48px;
+    width: 100%;
+}
+
+.edit-account-container .input-row-joined.top {
+    border-bottom: 1px solid #eee;
+}
+
+.edit-account-container .input-row-joined input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 14px;
+    font-size: 15px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.edit-account-container .toggle-btn-joined {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #777;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Category Grid */
+.edit-account-container .category-section {
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.edit-account-container .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.edit-account-container .category-box {
+    position: relative;
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: white;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.edit-account-container .category-box:hover {
+    border-color: #bbb;
+}
+
+.edit-account-container .category-box.selected {
+    border: 1px solid #333;
+    background-color: #333;
+    color: white;
+    font-weight: 600;
+}
+
+.edit-account-container .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4d4d;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+}
+
+/* Submit Buttons */
+.edit-account-container .submit-btn {
+    width: 100%;
+    height: 52px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-account-container .submit-btn.outline-black {
+    background-color: #333;
+    border: 1px solid #333;
+    color: white;
+}
+
+.edit-account-container .submit-btn.outline-black:hover {
+    background-color: #000;
+}
+
+/* Error/Success Messages */
+.edit-account-container .error-msg {
+    color: #ff4d4d;
+    font-size: 13px;
+    margin-top: 6px;
+    display: block;
+    text-align: left;
+}
+
+.edit-account-container .input-error {
+    border-color: #ff4d4d !important;
+}
+
+/* Password Strength */
+.edit-account-container .strength-meter-container {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.edit-account-container .strength-bar {
+    height: 4px;
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}

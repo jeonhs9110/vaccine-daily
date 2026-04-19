@@ -1,0 +1,66 @@
+.Carousel {
+  position: relative;
+  overflow: hidden; /* 영역 밖 숨김 */
+  background-color: #000; /* 빈 공간 배경색 */
+}
+
+/* 트랙: 자식들을 가로로 길게 배치 */
+.Carousel .carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out; /* 부드러운 슬라이딩 */
+}
+
+/* 개별 슬라이드 래퍼 */
+.Carousel .carousel-slide-item {
+  min-width: 100%; /* 부모 너비 100% 차지 (중요) */
+  height: 100%;
+  flex-shrink: 0; /* 줄어들지 않도록 고정 */
+}
+
+/* --- 네비게이션 버튼 스타일 --- */
+.Carousel .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  z-index: 10;
+  padding: 0 15px;
+  transition: color 0.3s;
+}
+
+.Carousel .carousel-btn:hover {
+  color: white;
+}
+
+.Carousel .prev-btn { left: 0; }
+.Carousel .next-btn { right: 0; }
+
+/* --- 인디케이터(점) 스타일 --- */
+.Carousel .carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.Carousel .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.Carousel .dot.active {
+  background-color: #ff5f5f; /* 포인트 컬러 */
+  transform: scale(1.2);
+}

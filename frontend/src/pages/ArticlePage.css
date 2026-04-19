@@ -1,0 +1,1283 @@
+.ArticlePage .page-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   1. 메인 컨텐츠 영역 (완벽 고정)
+   ========================================================= */
+.ArticlePage .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    /* [Refine] Reduced from 1320px for better readability */
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    width: 100%;
+    /* [Refine] Removed margin-right transition because animating 'auto' margins causes snapping */
+    transition: transform 0.3s ease-out;
+    /* Pure transform is smoother */
+}
+
+/* [Refine] Sidebar Push Effect */
+.ArticlePage.sidebar-open .main-content {
+    /* margin-right: 400px;  <-- REMOVED: Cannot animate from 'auto' */
+
+    /* 
+     Logic: The sidebar covers 400px on the right.
+     To visually "center" the content in the remaining space:
+     We need to shift left by half the sidebar width. (400px / 2 = 200px)
+  */
+    transform: translateX(-200px);
+
+    /* [Refine] Prevent Overlap & Prevent Expansion:
+     Ensure width shrinks to fit sidebar, BUT never exceeds original 1000px.
+  */
+    max-width: min(1000px, calc(100vw - 440px));
+}
+
+/* 대화면 대응: 사이드바가 500px로 커지므로, 이동 거리도 그 절반인 250px로 조정 */
+@media screen and (min-width: 1600px) {
+    .ArticlePage.sidebar-open .main-content {
+        transform: translateX(-250px);
+
+        /* 
+       Sidebar 500px. Buffer 50px.
+       Max Width = 100vw - 550px, but capped at 1000px.
+    */
+        max-width: min(1000px, calc(100vw - 550px));
+    }
+}
+
+/* On mobile (max-width: 768px), we use the Modal view, so we disable the push effect. */
+/* Mobile responsive styles moved to consolidated block below */
+
+.ArticlePage .main-content .article-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.ArticlePage .main-content .article-section {
+    flex: 1;
+    min-width: 0;
+}
+
+.ArticlePage .main-content .article-section .article-img {
+    height: 300px;
+}
+
+.ArticlePage .main-content .article-section .article-img img {
+    max-height: 300px;
+    object-fit: cover;
+}
+
+/* 비교분석 섹션 스타일 (Updated) */
+.ArticlePage .main-content .article-comparer {
+    text-align: left;
+    margin-top: 40px;
+    padding: 24px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.ArticlePage .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111;
+    border-left: 4px solid #333;
+    padding-left: 10px;
+}
+
+.ArticlePage .main-content .article-comparer .comparison-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ArticlePage .main-content .article-comparer .comparison-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: block;
+    /* Ensure block layout */
+}
+
+.ArticlePage .main-content .article-comparer .comparison-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Badge for Company Name */
+.comparison-company-badge {
+    display: inline-block;
+    font-weight: 700;
+    color: #1a73e8;
+    margin-right: 6px;
+}
+
+.analysis-text {
+    color: #495057;
+}
+
+/* New Format: Hashtags + One-liner */
+.comparison-item.new-format {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #fff;
+    border-left: 4px solid #1a73e8;
+    /* Accent color default */
+}
+
+.company-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.badge-row {
+    display: flex;
+    align-items: center;
+}
+
+.hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.hashtag-badge {
+    background-color: #e8f0fe;
+    color: #1967d2;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+.summary-text {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #202124;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Company specific accent colors (Optional dynamic styling logic can be added later) */
+
+.expand-icon {
+    transition: transform 0.2s ease;
+}
+
+.evidence-text {
+    line-height: 1.6;
+}
+
+.evidence-text .clickable-sentence {
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+    padding: 2px 0;
+}
+
+.evidence-text .clickable-sentence:hover {
+    background-color: #e3f2fd;
+    color: #1a73e8;
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   3. 키워드 영역 (사이드바 비율과 동기화)
+   ========================================================= */
+.ArticlePage .main-content .additional-section {
+    width: 300px;
+    margin-left: 40px;
+    text-align: left;
+}
+
+.ArticlePage .article-footer-actions {
+    margin: 20px 0;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+/* =========================================
+   Mobile Responsive Adjustments (Max 768px)
+   ========================================= */
+/* =========================================
+   Mobile Responsive Adjustments (Max 768px)
+   [Consolidated Block]
+   ========================================= */
+@media screen and (max-width: 768px) {
+
+    /* 1. Sidebar Push Reset */
+    .ArticlePage.sidebar-open .main-content {
+        margin-right: 0;
+        transform: none;
+        max-width: 100%;
+    }
+
+    /* 2. Main Content Layout */
+    .ArticlePage .main-content {
+        padding: 20px 15px;
+        width: 100%;
+    }
+
+    .ArticlePage .main-content .article-content-wrapper {
+        flex-direction: column;
+    }
+
+    /* 3. Additional Section (Keywords/WordCloud) */
+    .ArticlePage .main-content .additional-section {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    /* 4. Adjust image height & spacing for mobile */
+    .ArticlePage .main-content .article-section .article-img {
+        height: auto;
+        max-height: 300px;
+        width: 100%;
+    }
+
+    .ArticlePage .main-content .article-section .article-img img {
+        height: auto;
+        object-fit: contain;
+        width: 100%;
+        /* Ensure image uses the container width */
+    }
+
+    /* 5. Title Adjustment */
+    .ArticlePage .article-head-title {
+        font-size: 2rem;
+    }
+
+    /* 6. Action Button Bar */
+    .ArticlePage .action-button-bar {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    /* 7. Meta Row Stacking (Left Top, Right Bottom) */
+    .ArticlePage .article-meta-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .ArticlePage .meta-left {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .ArticlePage .meta-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    /* 8. Article text padding: match image width */
+    .ArticlePage .article-section > div[style] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* 9. Remove Divider Lines on Titles (Mobile) */
+    .ArticlePage .section-title,
+    .ArticlePage .main-content .article-comparer .section-title,
+    .ArticlePage .statistics-section .section-title {
+        border-left: none !important;
+        padding-left: 0 !important;
+    }
+
+    .ArticlePage .meta-left {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .ArticlePage .meta-right {
+        width: 100%;
+        justify-content: flex-start;
+        /* Left align buttons */
+    }
+}
+
+/* =========================================================
+   Separated Title & Divider (moved from NewsText)
+   ========================================================= */
+.ArticlePage .article-head-title {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    text-align: center;
+    /* Ensure left align usually */
+    letter-spacing: -1px;
+    color: #000000;
+    word-break: keep-all;
+    padding: 0 10px;
+    /* Reduced padding since container deals with it */
+}
+
+.ArticlePage .article-head-divider {
+    border: none;
+    border-top: 1px solid #eeeeee;
+    margin: 20px 10px 30px 10px;
+}
+
+/* =========================================================
+   Comparison Section with Fade-out & Show More
+   ========================================================= */
+.ArticlePage .comparison-container {
+    position: relative;
+    transition: max-height 0.3s ease-out;
+    /* Faster and smoother */
+    overflow: hidden;
+}
+
+.ArticlePage .comparison-container.collapsed {
+    max-height: 400px;
+    /* Reduced from previous, but enough for ~2 items */
+}
+
+/* Gradient Overlay */
+.ArticlePage .comparison-container.collapsed::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    pointer-events: none;
+}
+
+.ArticlePage .comparison-container.expanded {
+    max-height: 5000px;
+    /* Reduced from 2000px to minimize delay */
+}
+
+/* Show More Button (Refined to Link Style) */
+.ArticlePage .show-more-button-wrapper {
+    text-align: center;
+    margin-top: -20px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+/* [Fix] When expanded, push the button down so it doesn't overlap text */
+.ArticlePage .comparison-container.expanded+.show-more-button-wrapper {
+    margin-top: 20px;
+}
+
+.ArticlePage .show-more-button.link-style {
+    background: none;
+    border: none;
+    color: #5f6368;
+    /* Subtle gray usually looks better for 'show more' actions than strict blue links */
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: none;
+    /* Remove button shadow */
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ArticlePage .show-more-button.link-style:hover {
+    background: none;
+    /* No background on hover for link style */
+    color: #202124;
+    /* Darker on hover */
+    text-decoration: underline;
+    /* Standard link behavior */
+    box-shadow: none;
+}
+
+/* =========================================================
+   Action Button Bar (TTS, Font, Share, Print)
+   ========================================================= */
+.ArticlePage .action-button-bar {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    position: relative;
+    /* For popup positioning */
+}
+
+.ArticlePage .action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.ArticlePage .action-btn:hover {
+    background-color: #f0f0f0;
+    color: #111;
+}
+
+/* Specific button Tweaks */
+.ArticlePage .action-btn svg {
+    font-size: 1.4rem;
+}
+
+/* Text inside button (For Font Size "가가") */
+.ArticlePage .action-btn-text {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Pretendard', sans-serif;
+}
+
+/* Font Size Popup */
+.ArticlePage .font-size-popup {
+    position: absolute;
+    top: 100%;
+    left: 40px;
+    /* Adjust based on button position */
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+    min-width: 150px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ArticlePage .font-option {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #eee;
+    border: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #666;
+    opacity: 0.7;
+    transition: all 0.2s;
+}
+
+.ArticlePage .font-option:hover {
+    opacity: 1;
+    background-color: #ddd;
+}
+
+.ArticlePage .font-option.active {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+    opacity: 1;
+}
+
+/* Font Size Levels (To be applied to NewsText) */
+.news-body.fs-1 .news-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.news-body.fs-2 .news-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.news-body.fs-3 .news-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+.news-body.fs-4 .news-paragraph {
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+.news-body.fs-5 .news-paragraph {
+    font-size: 1.5rem;
+    line-height: 1.9;
+}
+
+/* Mobile Action Button Bar styles moved to consolidated block above */
+
+/* =========================================================
+   Global Font Size Styles (Applied to .ArticlePage container or similar)
+   ========================================================= */
+/* Default is fs-3 */
+.ArticlePage.fs-1 {
+    font-size: 0.85rem;
+}
+
+.ArticlePage.fs-2 {
+    font-size: 0.925rem;
+}
+
+.ArticlePage.fs-3 {
+    font-size: 1rem;
+}
+
+.ArticlePage.fs-4 {
+    font-size: 1.125rem;
+}
+
+.ArticlePage.fs-5 {
+    font-size: 1.3rem;
+}
+
+/* Apply to inner elements relatively */
+.ArticlePage.fs-1 h1 {
+    font-size: 1.6rem;
+}
+
+.ArticlePage.fs-2 h1 {
+    font-size: 1.8rem;
+}
+
+.ArticlePage.fs-3 h1 {
+    font-size: 2.0rem;
+}
+
+.ArticlePage.fs-4 h1 {
+    font-size: 2.4rem;
+}
+
+.ArticlePage.fs-5 h1 {
+    font-size: 2.8rem;
+}
+
+.ArticlePage.fs-1 .news-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.ArticlePage.fs-2 .news-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.ArticlePage.fs-3 .news-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.75;
+}
+
+.ArticlePage.fs-4 .news-paragraph {
+    font-size: 1.35rem;
+    line-height: 1.8;
+}
+
+.ArticlePage.fs-5 .news-paragraph {
+    font-size: 1.6rem;
+    line-height: 1.9;
+}
+
+/* '가가' Button Custom Style */
+.font-size-btn-content {
+    display: flex;
+    align-items: baseline;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.font-size-btn-content .small-ga {
+    font-size: 0.8rem;
+    margin-right: 1px;
+}
+
+.font-size-btn-content .large-ga {
+    font-size: 1.1rem;
+}
+
+
+/* Centered Popup (Font Size) */
+.ArticlePage .font-size-popup {
+    /* Override previous styles */
+    top: auto;
+    bottom: 110%;
+    /* Show ABOVE the button */
+    left: 50%;
+    transform: translateX(-50%);
+    /* ... rest same */
+}
+
+/* Arrow for popup */
+.ArticlePage .font-size-popup::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+
+/* TTS Settings Popup */
+.ArticlePage .tts-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    z-index: 100;
+    width: 280px;
+    text-align: left;
+}
+
+.ArticlePage .tts-popup h4 {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ArticlePage .tts-popup .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.ArticlePage .tts-section {
+    margin-bottom: 16px;
+}
+
+.ArticlePage .tts-section:last-child {
+    margin-bottom: 0;
+}
+
+.ArticlePage .tts-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.ArticlePage .tts-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ArticlePage .tts-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #444;
+}
+
+.ArticlePage .tts-radio-label input {
+    accent-color: #007bff;
+}
+
+.ArticlePage .tts-play-btn {
+    width: 100%;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 0.95rem;
+}
+
+.ArticlePage .tts-play-btn:hover {
+    background-color: #3367d6;
+}
+
+/* =========================================================
+   Global Font Size Styles (Refined)
+   ========================================================= */
+
+/* Base font sizes for container */
+.ArticlePage.fs-1 {
+    font-size: 0.85rem;
+}
+
+.ArticlePage.fs-2 {
+    font-size: 0.925rem;
+}
+
+.ArticlePage.fs-3 {
+    font-size: 1rem;
+}
+
+.ArticlePage.fs-4 {
+    font-size: 1.125rem;
+}
+
+.ArticlePage.fs-5 {
+    font-size: 1.3rem;
+}
+
+/* Apply to Headings */
+.ArticlePage.fs-1 h1,
+.ArticlePage.fs-1 h2,
+.ArticlePage.fs-1 h3,
+.ArticlePage.fs-1 h4 {
+    zoom: 0.85;
+}
+
+.ArticlePage.fs-2 h1,
+.ArticlePage.fs-2 h2,
+.ArticlePage.fs-2 h3,
+.ArticlePage.fs-2 h4 {
+    zoom: 0.925;
+}
+
+.ArticlePage.fs-3 h1,
+.ArticlePage.fs-3 h2,
+.ArticlePage.fs-3 h3,
+.ArticlePage.fs-3 h4 {
+    zoom: 1;
+}
+
+.ArticlePage.fs-4 h1,
+.ArticlePage.fs-4 h2,
+.ArticlePage.fs-4 h3,
+.ArticlePage.fs-4 h4 {
+    zoom: 1.1;
+}
+
+.ArticlePage.fs-5 h1,
+.ArticlePage.fs-5 h2,
+.ArticlePage.fs-5 h3,
+.ArticlePage.fs-5 h4 {
+    zoom: 1.25;
+}
+
+/* Using zoom or relative sizing is simpler than re-declaring px values for every heading */
+
+/* Comparison Section */
+.ArticlePage.fs-1 .comparison-item {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.ArticlePage.fs-2 .comparison-item {
+    font-size: 1.0rem;
+    line-height: 1.6;
+}
+
+.ArticlePage.fs-3 .comparison-item {
+    font-size: 1.1rem;
+    line-height: 1.65;
+}
+
+.ArticlePage.fs-4 .comparison-item {
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.ArticlePage.fs-5 .comparison-item {
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+/* Evidence Items */
+.ArticlePage.fs-1 .evidence-item {
+    font-size: 0.8rem;
+}
+
+.ArticlePage.fs-2 .evidence-item {
+    font-size: 0.85rem;
+}
+
+.ArticlePage.fs-3 .evidence-item {
+    font-size: 0.9rem;
+}
+
+.ArticlePage.fs-4 .evidence-item {
+    font-size: 1.0rem;
+}
+
+.ArticlePage.fs-5 .evidence-item {
+    font-size: 1.15rem;
+}
+
+/* Timeline Section */
+.ArticlePage.fs-1 .timeline-item {
+    font-size: 0.9rem;
+}
+
+.ArticlePage.fs-2 .timeline-item {
+    font-size: 0.95rem;
+}
+
+.ArticlePage.fs-3 .timeline-item {
+    font-size: 1.0rem;
+}
+
+.ArticlePage.fs-4 .timeline-item {
+    font-size: 1.1rem;
+}
+
+.ArticlePage.fs-5 .timeline-item {
+    font-size: 1.25rem;
+}
+
+/* Sources Section */
+.ArticlePage.fs-1 .sources-list li {
+    font-size: 0.85rem;
+}
+
+.ArticlePage.fs-2 .sources-list li {
+    font-size: 0.9rem;
+}
+
+.ArticlePage.fs-3 .sources-list li {
+    font-size: 0.95rem;
+}
+
+.ArticlePage.fs-4 .sources-list li {
+    font-size: 1.05rem;
+}
+
+.ArticlePage.fs-5 .sources-list li {
+    font-size: 1.2rem;
+}
+
+/* News Paragraph (Reinforce) */
+.ArticlePage.fs-1 .news-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.ArticlePage.fs-2 .news-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+.ArticlePage.fs-3 .news-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.75;
+}
+
+.ArticlePage.fs-4 .news-paragraph {
+    font-size: 1.35rem;
+    line-height: 1.8;
+}
+
+.ArticlePage.fs-5 .news-paragraph {
+    font-size: 1.6rem;
+    line-height: 1.9;
+}
+
+/* =========================================================
+   Unified Popup Styles (TTS, Font, Share)
+   ========================================================= */
+.ArticlePage .popup-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /* Default */
+    margin-top: 8px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    z-index: 100;
+    width: 280px;
+    text-align: left;
+    cursor: auto;
+    /* Prevent button click propagation issues */
+}
+
+.ArticlePage .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.ArticlePage .popup-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.ArticlePage .popup-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.ArticlePage .popup-close-btn:hover {
+    color: #333;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+}
+
+/* Font Size Popup Overrides (Unified Style) */
+.ArticlePage .font-size-popup-unified {
+    left: 0;
+    right: auto;
+    transform: none;
+    width: 220px;
+
+    /* Position ABOVE button */
+    top: auto;
+    bottom: 130%;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* Remove arrow to match TTS style */
+.ArticlePage .font-size-popup-unified::after {
+    display: none;
+}
+
+/* Share Popup Overrides */
+.ArticlePage .share-popup {
+    width: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 110%;
+    /* Below button */
+}
+
+/* Triangle for Share Popup (Pointing Up) */
+.ArticlePage .share-popup::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+
+.ArticlePage .share-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.ArticlePage .share-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    border: 1px solid #eee;
+    cursor: pointer;
+    padding: 12px 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.ArticlePage .share-item:hover {
+    background-color: #f9f9f9;
+    border-color: #ccc;
+    transform: translateY(-2px);
+}
+
+.ArticlePage .share-item:active {
+    transform: translateY(0);
+}
+
+.ArticlePage .share-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.ArticlePage .share-label {
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Share Colors */
+.bg-kakao {
+    background-color: #FEE500;
+    color: #3C1E1E !important;
+}
+
+.bg-facebook {
+    background-color: #1877F2;
+}
+
+.bg-twitter {
+    background-color: #000000;
+}
+
+.bg-link {
+    background-color: #888;
+}
+
+/* =========================================================
+   New Layout: Metadata Row (Date + Buttons)
+   ========================================================= */
+.ArticlePage .article-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    /* Divider moved here */
+}
+
+/* Remove old divider since we use the row border now, or keep it */
+.ArticlePage .article-head-divider {
+    display: none;
+    /* Hide old HR */
+}
+
+.ArticlePage .meta-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.ArticlePage .meta-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Remove old action-button-bar styles if conflicting */
+.ArticlePage .action-button-bar {
+    /* Deprecated but kept for transition, or reset */
+    display: none;
+}
+
+/* Override Popup Position to be BELOW the button */
+.ArticlePage .font-size-popup-unified {
+    top: 100%;
+    bottom: auto;
+    margin-top: 8px;
+    left: 0;
+    right: auto;
+    transform: none;
+}
+
+/* Ensure Font Size applies to Comparison and Timeline */
+.ArticlePage.fs-1 .comparison-item,
+.ArticlePage.fs-1 .timeline-item,
+.ArticlePage.fs-1 .evidence-item {
+    font-size: 0.85rem !important;
+}
+
+.ArticlePage.fs-2 .comparison-item,
+.ArticlePage.fs-2 .timeline-item,
+.ArticlePage.fs-2 .evidence-item {
+    font-size: 0.95rem !important;
+}
+
+.ArticlePage.fs-3 .comparison-item,
+.ArticlePage.fs-3 .timeline-item,
+.ArticlePage.fs-3 .evidence-item {
+    font-size: 1rem !important;
+}
+
+.ArticlePage.fs-4 .comparison-item,
+.ArticlePage.fs-4 .timeline-item,
+.ArticlePage.fs-4 .evidence-item {
+    font-size: 1.15rem !important;
+}
+
+.ArticlePage.fs-5 .comparison-item,
+.ArticlePage.fs-5 .timeline-item,
+.ArticlePage.fs-5 .evidence-item {
+    font-size: 1.3rem !important;
+}
+
+/* =========================================================
+   Timeline Font Size Overrides (Specific Children)
+   ========================================================= */
+/* FS-1 (Small) */
+.ArticlePage.fs-1 .timeline-date {
+    font-size: 0.75rem !important;
+}
+
+.ArticlePage.fs-1 .timeline-content-title {
+    font-size: 0.9rem !important;
+}
+
+.ArticlePage.fs-1 .timeline-summary {
+    font-size: 0.8rem !important;
+}
+
+/* FS-2 */
+.ArticlePage.fs-2 .timeline-date {
+    font-size: 0.8rem !important;
+}
+
+.ArticlePage.fs-2 .timeline-content-title {
+    font-size: 0.95rem !important;
+}
+
+.ArticlePage.fs-2 .timeline-summary {
+    font-size: 0.85rem !important;
+}
+
+/* FS-3 (Default) */
+.ArticlePage.fs-3 .timeline-date {
+    font-size: 0.85rem !important;
+}
+
+.ArticlePage.fs-3 .timeline-content-title {
+    font-size: 1rem !important;
+}
+
+.ArticlePage.fs-3 .timeline-summary {
+    font-size: 0.9rem !important;
+}
+
+/* FS-4 */
+.ArticlePage.fs-4 .timeline-date {
+    font-size: 0.95rem !important;
+}
+
+.ArticlePage.fs-4 .timeline-content-title {
+    font-size: 1.1rem !important;
+}
+
+.ArticlePage.fs-4 .timeline-summary {
+    font-size: 1.0rem !important;
+}
+
+/* FS-5 (Large) */
+.ArticlePage.fs-5 .timeline-date {
+    font-size: 1.05rem !important;
+}
+
+.ArticlePage.fs-5 .timeline-content-title {
+    font-size: 1.25rem !important;
+}
+
+.ArticlePage.fs-5 .timeline-summary {
+    font-size: 1.15rem !important;
+}
+
+/* =========================================================
+   Evidence Container Font Size Overrides (Override Inline)
+   ========================================================= */
+.ArticlePage.fs-1 .evidence-container {
+    font-size: 0.85rem !important;
+}
+
+.ArticlePage.fs-2 .evidence-container {
+    font-size: 0.95rem !important;
+}
+
+.ArticlePage.fs-3 .evidence-container {
+    font-size: 1rem !important;
+}
+
+.ArticlePage.fs-4 .evidence-container {
+    font-size: 1.15rem !important;
+}
+
+.ArticlePage.fs-5 .evidence-container {
+    font-size: 1.3rem !important;
+}
+
+/* =========================================================
+   Header Right Group Alignment (Copied from Main.css / Login.css)
+   ========================================================= */
+.ArticlePage .header-right-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-end;
+    width: auto;
+}
+
+.ArticlePage .header-search-wrapper {
+    position: relative;
+    /* Optional: Add dimensions if needed */
+}

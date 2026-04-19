@@ -1,0 +1,187 @@
+.Login {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f9f9f9;
+    /* Slight background color for contrast */
+}
+
+/* Wrapper to center the login box in the remaining height */
+.Login .Login_container_wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px;
+    /* Slight offset upwards */
+}
+
+.Login .Login_main_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 40px;
+    padding: 50px 40px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    /* Square corners -> Rounded 12px */
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+    .Login .Login_container_wrapper {
+        padding: 20px;
+        padding-bottom: 40px;
+        align-items: flex-start;
+        margin-top: 30px;
+    }
+
+    .Login .Login_main_box {
+        padding: 40px 20px;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+}
+
+.Login .login-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.Login .Login_total {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Input Group (Naver Style) */
+.Login .login-input-group {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.Login .input_row {
+    width: 100%;
+    height: 50px;
+}
+
+.Login .input_row.top {
+    border-bottom: 1px solid #eee;
+}
+
+.Login .id_box,
+.Login .pw_box {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* Focus effects for the group wrapper could be complex, keeping it simple for now */
+/* Focus effects for the group wrapper could be complex, keeping it simple for now */
+.Login .id_box:focus,
+.Login .pw_box:focus {
+    background-color: #fff;
+}
+
+.Login .login-input-group:focus-within {
+    border-color: #333;
+    box-shadow: 0 0 0 1px #333;
+}
+
+/* Error message style */
+.Login .error_login {
+    color: #cc0000;
+    font-size: 13px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Login Options (Stay Signed In) */
+.Login .login-options {
+    display: flex;
+    justify-content: flex-end;
+    /* Right aligned like Naver often does, or Left */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.Login .stay-signed-in {
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.Login .stay-signed-in input {
+    margin: 0;
+}
+
+/* Button Wrapper */
+.Login .button_wrapper {
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    /* Button Wrapper handles content, Button component handles style overrides usually, but if using standard button here... */
+}
+
+/* Footer Links */
+.Login .login-footer-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+    color: #888;
+}
+
+.Login .login-footer-links span {
+    cursor: pointer;
+}
+
+.Login .login-footer-links .divider {
+    color: #ddd;
+    font-size: 12px;
+    cursor: default;
+}
+
+/* Refactored Inline Styles */
+.Login .header-right-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-end;
+    width: auto;
+}
+
+.Login .header-search-wrapper {
+    position: relative;
+}
+
+.Login .find-id-link {
+    cursor: pointer;
+}
+
+.Login .create-account-link {
+    cursor: pointer;
+    font-weight: bold;
+}

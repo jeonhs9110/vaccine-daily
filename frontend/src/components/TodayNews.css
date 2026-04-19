@@ -1,0 +1,5 @@
+.today-news-section .news-grid-wrapper {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+}

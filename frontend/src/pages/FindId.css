@@ -1,0 +1,361 @@
+/* FindId.css - Aligned with Login.css */
+
+.find-id-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+/* Wrapper to center the box, matching Login's vertical offset */
+.find-id-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px;
+}
+
+/* The White Box - Matched Login styling */
+.find-id-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 40px;
+    padding: 50px 40px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.find-id-box h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #333;
+    width: 100%;
+    text-align: center;
+    /* Login.css uses .login-title, simplified here but same properties */
+}
+
+.find-id-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Login uses margin-bottom 10px on input groups */
+}
+
+/* Input Group */
+.find-id-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.find-id-input-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    display: none;
+    /* Login doesn't show labels above inputs, it uses placeholders. Hiding to match valid Login style if desired, OR keeping for better UX? Login has no labels. Let's hide or remove. 
+    Actually, Find ID usually needs labels because there are distinct fields (Name, Email). Login just has ID/PW. 
+    Let's keep labels but ensure the container spacing is right. */
+    display: block;
+}
+
+.find-id-input-group input {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    /* Match Login/CreateAccount */
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.2s;
+    margin-bottom: 5px;
+}
+
+.find-id-input-group input:focus {
+    border-color: #333;
+    box-shadow: 0 0 0 1px #333;
+}
+
+/* Submit Button */
+.find-id-btn {
+    margin-top: 10px;
+    /* Match Login button_wrapper margin */
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+    /* Login uses 18px */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.find-id-btn:hover {
+    background-color: #222;
+}
+
+.find-id-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Result Area */
+.find-id-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.find-id-result p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.find-id-result .found-id {
+    font-size: 18px;
+    font-weight: 800;
+    color: #333;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Links */
+.find-id-links {
+    margin-top: 30px;
+    /* Match Login footer links margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+    color: #888;
+}
+
+.find-id-links span {
+    cursor: pointer;
+}
+
+.find-id-links span:hover {
+    text-decoration: underline;
+}
+
+.error-msg {
+    color: #cc0000;
+    /* Match Login error color */
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+    .find-id-wrapper {
+        padding: 20px;
+        padding-bottom: 40px;
+        align-items: flex-start;
+        margin-top: 30px;
+    }
+
+    .find-id-box {
+        padding: 40px 20px;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+}
+
+/* Wrapper to center the white box */
+.find-id-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* The White Box */
+.find-id-box {
+    background-color: white;
+    width: 100%;
+    max-width: 460px;
+    padding: 40px;
+    border: 1px solid #dadada;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    /* Center title */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align form items left? Or center? Login is seemingly centered block */
+}
+
+.find-id-box h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+.find-id-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input Group */
+.find-id-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.find-id-input-group label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.find-id-input-group input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid #dadada;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.find-id-input-group input:focus {
+    border-color: #333;
+}
+
+/* Submit Button */
+.find-id-btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.find-id-btn:hover {
+    background-color: #222;
+}
+
+.find-id-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+/* Result Area */
+.find-id-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+}
+
+.find-id-result p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.find-id-result .found-id {
+    font-size: 18px;
+    font-weight: 800;
+    color: #03c75a;
+    /* Point color or just black? */
+    color: #333;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Links */
+.find-id-links {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 13px;
+    color: #888;
+}
+
+.find-id-links span {
+    cursor: pointer;
+}
+
+.find-id-links span:hover {
+    text-decoration: underline;
+}
+
+.error-msg {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Refactored Inline Styles */
+.find-id-container .header-right-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-end;
+    width: auto;
+}
+
+.find-id-container .header-search-wrapper {
+    position: relative;
+}
+
+.find-id-container .login-btn-link {
+    margin-top: 15px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #03c75a;
+}

@@ -1,0 +1,939 @@
+.world-page {
+    width: 100%;
+}
+
+.world-page .category-content {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+.world-page .category-header {
+    margin-bottom: 70px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 15px;
+    text-align: left;
+}
+
+.world-page .section-divider {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+.world-page .category-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+.world-page .main-article-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Visibility Toggles */
+.mobile-only-section {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .desktop-only-section {
+        display: none !important;
+    }
+
+    .mobile-only-section {
+        display: block !important;
+    }
+
+    .mobile-hidden {
+        display: none !important;
+    }
+}
+
+.world-page .side-column {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.world-page .side-article {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.world-page .side-image {
+    width: 100%;
+    aspect-ratio: 18 / 9;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+.world-page .side-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.world-page .side-info h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+
+.world-page .main-article-center {
+    flex: 2;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.world-page .main-info {
+    width: 100%;
+    margin-top: 0;
+}
+
+.world-page .hot-badge {
+    display: none;
+    /* Hidden on desktop as requested */
+    background-color: #e63946;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    width: fit-content;
+}
+
+.world-page .main-article-center h2 {
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.3;
+    color: #000;
+    margin-top: 20px;
+    /* Add margin top for spacing from image */
+}
+
+.world-page .main-info p {
+    font-size: 14px;
+    /* 2px reduced */
+    color: #666;
+    margin-top: 0;
+    /* Reduced to 0 as requested */
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.world-page .main-article-center .article-image-center {
+    width: 100%;
+    /* Increased to match title width */
+    aspect-ratio: 1.5 / 1;
+    border-radius: 1px;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.world-page .article-image-center {
+    width: 100%;
+    aspect-ratio: 1.5 / 1;
+    border-radius: 1px;
+    overflow: hidden;
+    position: relative;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.world-page .article-image-center img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.world-page .section-divider {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.world-page .grid-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.world-page .grid-item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+
+
+.world-page .grid-image img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+}
+
+.world-page .grid-info h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    line-height: 1.4;
+}
+
+.world-page .grid-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.world-page .list-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.world-page .list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    min-width: 0;
+}
+
+.world-page .list-item:hover {
+    background-color: #f9f9f9;
+}
+
+.world-page .list-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.world-page .list-date {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    margin-top: 2px;
+    font-weight: 400;
+}
+
+.world-page .list-item h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.world-page .list-item p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.world-page .list-image {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+.world-page .list-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.world-page .bottom-feed-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: left;
+    margin-top: 30px;
+    padding: 0 40px;
+}
+
+.world-page .feed-item {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Vertically center text with image */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    gap: 20px;
+}
+
+.world-page .feed-left-container {
+    display: flex;
+    flex: 1;
+    padding-right: 0px;
+    min-width: 0;
+}
+
+.world-page .feed-date {
+    margin-right: 50px;
+    padding-right: 15px;
+    border-right: 1px solid #ddd;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    min-width: 100px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.world-page .feed-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.world-page .feed-info h3 {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.world-page .feed-info p {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.world-page .feed-image {
+    width: 200px;
+    aspect-ratio: 1.8/1;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.world-page .feed-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Pagination */
+.world-page.category-page .pagination-container {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.world-page.category-page .pagination-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    color: #666;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.world-page.category-page .pagination-btn.active {
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+}
+
+.world-page.category-page .pagination-btn:hover:not(.active) {
+    background-color: #f0f0f0;
+}
+
+
+.world-page.category-page .highlight-keyword {
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.world-page.category-page .highlight-content {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Bottom Grid Section (3 items) */
+
+
+
+
+.world-page.category-page .grid-image {
+    position: relative;
+    border: none;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+
+
+.world-page.category-page .grid-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.world-page.category-page .grid-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 3;
+    text-align: left;
+}
+
+.world-page.category-page .grid-title-overlay h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #fff;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+/* Pagination */
+
+
+.world-page.category-page .empty-category {
+    text-align: center;
+    padding: 100px 0;
+    color: #666;
+    font-size: 18px;
+    border: 1px dashed #ccc;
+    margin: 20px 0;
+}
+
+/* Hover Effects for Titles */
+.world-page.category-page .politics-title-side:hover h2,
+.world-page.category-page .main-article-section:hover h2 {
+    text-decoration: underline;
+}
+
+.world-page.category-page .grid-item:hover h3,
+.world-page.category-page .list-item:hover h3,
+.world-page.category-page .feed-item:hover h3 {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   Mobile World Page Design (Max 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+
+    /* 1. Reset Global Padding */
+    .world-page .category-content {
+        padding: 20px 15px !important;
+    }
+
+    .world-page .category-header {
+        margin-bottom: 25px !important;
+        padding-bottom: 10px !important;
+        border-bottom: 1px solid #333 !important;
+    }
+
+    .world-page .category-header h1 {
+        font-size: 22px !important;
+        margin: 0 !important;
+    }
+
+    /* 2. Main Article Section (Stack Vertically) */
+    .world-page .main-article-section {
+        flex-direction: column !important;
+        gap: 0 !important;
+        min-height: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* --- Mobile Carousel Styles --- */
+    .main-article-section-mobile {
+        display: block !important;
+        width: calc(100% + 30px) !important;
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+        margin-bottom: 30px;
+        position: relative;
+        border-radius: 0 !important;
+    }
+
+    .mobile-full-slider {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 0 !important;
+    }
+
+    .mobile-slide-track {
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+        width: 100%;
+    }
+
+    .mobile-whole-slide {
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .mobile-slide-top {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1.5 / 1;
+        overflow: hidden;
+        border-radius: 0 !important;
+    }
+
+    .mobile-slide-top img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0 !important;
+    }
+
+    .world-page .main-image-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: #fff;
+        z-index: 3;
+        text-align: left;
+        box-sizing: border-box;
+    }
+
+    .world-page .main-image-text h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+        color: #fff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .hot-badge-overlay {
+        display: inline-block;
+        background-color: #e63946;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 800;
+        padding: 2px 8px;
+        border-radius: 3px;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .carousel-dots-mobile {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .carousel-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: #ddd;
+        transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+        background-color: #333 !important;
+        width: 20px;
+        border-radius: 4px;
+    }
+
+    .world-page .side-column {
+        display: none !important;
+    }
+
+    .world-page .main-article-center {
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    .world-page .main-info {
+        text-align: left !important;
+        margin-top: 20px !important;
+    }
+
+    .world-page .main-info h2 {
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+    }
+
+    .world-page .main-info p {
+        font-size: 15px !important;
+        color: #555 !important;
+        margin-top: 10px !important;
+        -webkit-line-clamp: 3 !important;
+    }
+
+    .world-page .article-image-center {
+        width: 100% !important;
+        aspect-ratio: 1.5 / 1 !important;
+        height: auto !important;
+        order: -1 !important;
+        /* Image on top if needed within center container */
+    }
+
+    /* 3. Grid Section (2-column on Mobile) */
+    .world-page .grid-section {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+        padding: 0 !important;
+    }
+
+    .world-page .grid-section .grid-image {
+        width: 100% !important;
+        aspect-ratio: 1.5 / 1 !important;
+        height: auto !important;
+    }
+
+    .world-page .grid-section h3 {
+        font-size: 14px !important;
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
+    }
+
+    /* Hide Dividers to create immediate flow from Main to Feed */
+    .world-page .section-divider,
+    .world-page .main-article-section+.section-divider,
+    .world-page .grid-section+.section-divider,
+    .world-page .main-article-section-mobile+.section-divider {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+    }
+
+
+    .world-page .politics-title-side {
+        flex: auto !important;
+        width: 100% !important;
+    }
+
+    .world-page .politics-title-side h2 {
+        font-size: 24px !important;
+        /* Smaller headline */
+        line-height: 1.3 !important;
+    }
+
+    .world-page p {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+    }
+
+    .world-page .politics-title-side p {
+        line-height: 1.3 !important;
+        color: #555 !important;
+        margin-top: 10px !important;
+        -webkit-line-clamp: 3 !important;
+    }
+
+    .world-page .politics-image-side {
+        flex: auto !important;
+        width: 100% !important;
+    }
+
+    .world-page .article-image-center {
+        width: 100% !important;
+        aspect-ratio: 1.5 / 1 !important;
+        height: auto !important;
+    }
+
+    /* 3. Grid Section (Single Column) */
+    .world-page .bottom-grid-section {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+
+    .world-page .grid-item {
+        gap: 15px !important;
+    }
+
+    .world-page .grid-image {
+        width: 100% !important;
+        aspect-ratio: 1.5 / 1 !important;
+    }
+
+    /* 4. List Section (Single Column) */
+    .world-page .bottom-list-section {
+        display: none !important;
+    }
+
+    /* List Section on Mobile */
+    .world-page .list-section {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        padding: 0 !important;
+    }
+
+    .world-page .list-info h3 {
+        font-size: 14px !important;
+    }
+
+    /* Handle Dividers for Disabled Section */
+    .world-page .grid-section+.section-divider {
+        display: none !important;
+    }
+
+    .world-page .list-item {
+        gap: 15px !important;
+        align-items: flex-start !important;
+    }
+
+    .world-page .list-image {
+        width: 100px !important;
+        /* Fixed small thumbnail */
+        height: 75px !important;
+    }
+
+    .world-page .list-info h3 {
+        line-height: 1.4 !important;
+    }
+
+    /* 5. Feed Section (Clean Stack) */
+    .world-page.category-page .bottom-feed-section {
+        padding: 0 !important;
+        gap: 30px !important;
+    }
+
+    .world-page.category-page .feed-item {
+        flex-direction: column !important;
+        gap: 15px !important;
+        border-bottom: 1px solid #eee !important;
+        padding-bottom: 30px !important;
+    }
+
+    .world-page.category-page .feed-item .feed-date {
+        display: none !important;
+    }
+
+    .world-page.category-page .feed-image {
+        width: 100% !important;
+        aspect-ratio: 1.5 / 1 !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 15px !important;
+        order: -1 !important;
+        /* Move Image to Top */
+        border-radius: 5px !important;
+    }
+
+    /* Container for text info in feed */
+    .world-page.category-page .feed-item>div:first-child {
+        width: 100% !important;
+        padding-right: 0 !important;
+    }
+
+    .world-page.category-page .feed-info h3 {
+        font-size: 20px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .world-page.category-page .feed-info p {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        color: #666 !important;
+    }
+
+    /* 작은 모바일 (480px 이하) */
+    @media (max-width: 480px) {
+        .world-page.category-page .category-content {
+            padding: 15px 10px;
+        }
+
+        .world-page.category-page .category-header {
+            /* margin-bottom: 20px; padding-bottom: 8px; removed (redundant) */
+        }
+
+        /* category-header h1 removed (redundant) */
+
+        .world-page.category-page .politics-slide-item {
+            padding: 10px 0 !important;
+        }
+
+        .world-page.category-page .politics-slide-item h2 {
+            font-size: 15px !important;
+            line-height: 1.4 !important;
+        }
+
+        .world-page.category-page .politics-slide-item.active h2 {
+            font-size: 17px !important;
+        }
+
+        .world-page.category-page .politics-slide-item p {
+            font-size: 13px !important;
+            -webkit-line-clamp: 2 !important;
+            line-clamp: 2 !important;
+        }
+
+        .world-page.category-page .bottom-feed-section {
+            padding: 0 10px !important;
+            gap: 15px !important;
+        }
+
+        .world-page.category-page .feed-item {
+            padding-bottom: 12px !important;
+        }
+
+        .world-page.category-page .feed-item .feed-info h3 {
+            line-height: 1.4 !important;
+        }
+
+        .world-page.category-page .feed-item .feed-info p {
+            -webkit-line-clamp: 2 !important;
+            line-clamp: 2 !important;
+        }
+
+        .world-page.category-page .feed-item .like-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .world-page.category-page .feed-item .like-icon span {
+            font-size: 13px !important;
+        }
+
+        .world-page.category-page .section-divider {
+            margin: 25px 0;
+        }
+    }
+}
+
+
+
+
+/* Forced Layout Fix for List Section */
+
+
+/* Refactored Inline Styles */
+.world-page .header-right-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-end;
+    width: auto;
+}
+
+.world-page .header-search-wrapper {
+    position: relative;
+}
+
+.world-page .skeleton-container {
+    margin-top: 40px;
+}
+
+.world-page .skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}

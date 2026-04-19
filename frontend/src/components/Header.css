@@ -1,0 +1,302 @@
+/* Main container for the entire header structure */
+.Header-Container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Header 1: Top Section */
+.Header-Container .Header-Top {
+    height: 44px;
+    background-color: #fefefd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    color: #333;
+    padding: 0;
+}
+
+/* News Ticker (Vertical Slide) */
+.Header-Container .news-ticker-wrapper {
+    height: 36px;
+    overflow: hidden;
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.Header-Container .news-ticker-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.Header-Container .news-ticker-item {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+    font-size: 13.5px;
+    font-weight: 500;
+}
+
+.Header-Container .news-ticker-item:hover {
+    text-decoration: underline;
+}
+
+/* --- Visibility Logic: Hide Mobile Elements on Desktop --- */
+.hamburger-icon,
+.mobile-side-menu,
+.mobile-side-menu-overlay {
+    display: none;
+}
+
+.Header-Container .header-top-content {
+    width: 100%;
+    max-width: 1320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* weather-widget 스타일은 Weather.css에서 관리 */
+
+/* Header 2: Main Section */
+.Header-Container .Header-Main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    height: 80px;
+    background-color: #fefefd;
+}
+
+.Header-Container .Header-Main .header-main-content {
+    width: 100%;
+    max-width: 1320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.Header-Container .Header-Main .left-child {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.Header-Container .Header-Main .mid-child {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header-Container .Header-Main .right-child {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Header 3: Bottom Section */
+.Header-Container .Header-Bottom {
+    height: auto;
+    background-color: #fefefd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0 0 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.Header-Container .Header-Bottom .category-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    width: 100%;
+    max-width: 1320px;
+}
+
+.Header-Container .Header-Bottom .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 12px 20px;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.Header-Container .Header-Bottom .category-item:hover {
+    color: #282828;
+}
+
+.Header-Container .Header-Bottom .category-item.active {
+    background-color: transparent;
+    color: #000 !important;
+    font-weight: 800;
+}
+
+.Header-Container .Header-Bottom .category-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 3px;
+    background-color: #000;
+    display: block;
+}
+
+.Header-Container .Header-Bottom .category-item span {
+    font-size: 16.5px;
+    font-weight: 500;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.Header-Container .Header-Bottom .category-item:hover span {
+    color: #000;
+    font-weight: 800;
+}
+
+/* =========================================
+   Mobile Responsive Adjustments (Max 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+
+    /* Hide Main Sections on Mobile */
+    .Header-Container .Header-Top,
+    .Header-Container .weather-widget,
+    .Header-Container .Header-Main,
+    .Header-Container .Header-Bottom {
+        display: none !important;
+    }
+
+    /* Standard Mobile Header Container (Top Bar) */
+    .Header-Container {
+        padding-top: 60px;
+    }
+
+    .mobile-side-menu {
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 1020;
+        transform: translateY(0);
+        flex-direction: column;
+        pointer-events: none;
+    }
+
+    .mobile-menu-header {
+        height: 60px;
+        background-color: #fff !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        /* Space between logo and hamburger */
+        padding: 0 15px;
+        pointer-events: auto;
+        transition: background-color 0.3s ease;
+        z-index: 10;
+        position: relative;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* Mobile Logo Styling */
+    .mobile-logo {
+        transform: none !important;
+    }
+
+    .mobile-logo .logo-image {
+        height: 40px !important;
+        /* Smaller logo for mobile bar */
+        width: auto;
+    }
+
+    /* Hamburger Toggle Button */
+    .hamburger-icon {
+        display: flex !important;
+        cursor: pointer;
+        z-index: 11;
+        position: relative;
+        min-width: 40px;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hamburger Color Logic - Black by default */
+    .mobile-menu-header .hamburger-icon svg {
+        stroke: black !important;
+        filter: none !important;
+    }
+
+    /* Mobile Category List (Slide Down) */
+    .mobile-menu-list {
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        transform: translateY(-100%);
+        /* Start from behind header */
+        margin-top: -2px;
+        /* Push up to avoid gap with header */
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+        pointer-events: auto;
+        z-index: 5;
+        /* Behind header */
+    }
+
+    .mobile-side-menu.open .mobile-menu-list {
+        transform: translateY(0);
+    }
+
+    .mobile-menu-item {
+        padding: 18px 25px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+        border-bottom: 1px solid #f0f0f0;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .mobile-menu-item:hover {
+        background-color: #f9f9f9;
+        color: #000;
+    }
+
+    .mobile-menu-item.active {
+        color: #000;
+        font-weight: 700;
+        background-color: #f5f5f5;
+    }
+
+    .mobile-hidden {
+        display: none !important;
+    }
+}
+
+.Header-Container .news-ticker-list.no-transition {
+    transition: none !important;
+}

@@ -1,0 +1,155 @@
+.opinion-section {
+    margin-top: 30px;
+    padding: 24px;
+    background-color: #fefdf8;
+    border-radius: 12px;
+    border: 1px solid #f0e8d0;
+    border-left: 4px solid #e6a817;
+}
+
+.opinion-section .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.opinion-loading {
+    font-size: 0.95rem;
+    color: #888;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* 리스트 컨테이너 */
+.opinion-comparison-container {
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.opinion-comparison-container.collapsed {
+    max-height: 350px;
+}
+
+.opinion-comparison-container.collapsed::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(254, 253, 248, 0), rgba(254, 253, 248, 1));
+    pointer-events: none;
+}
+
+.opinion-comparison-container.expanded {
+    max-height: 5000px;
+}
+
+.opinion-comparison-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 개별 아이템 — 언론사별 보도 특징과 동일 구조 */
+.opinion-comparison-item {
+    background-color: #ffffff;
+    border: 1px solid #e8e0cc;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.opinion-comparison-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* 헤더: 언론사 배지 + 해시태그 */
+.opinion-company-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.opinion-badge-row {
+    display: flex;
+    align-items: center;
+}
+
+.opinion-company-badge {
+    display: inline-block;
+    font-weight: 700;
+    color: #9c6b12;
+    font-size: 1rem;
+}
+
+.opinion-hashtags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.opinion-hashtag-badge {
+    background-color: #fef3d6;
+    color: #9c6b12;
+    font-size: 0.78rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* 한줄요약 */
+.opinion-summary-text {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #202124;
+    line-height: 1.55;
+    margin: 4px 0 0 0;
+    text-align: left;
+}
+
+/* 근거 (더보기 시 표시) */
+.opinion-evidence-text {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: #5f6368;
+    line-height: 1.6;
+    text-align: left;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 더보기/접기 버튼 */
+.opinion-show-more {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.opinion-show-more button {
+    background: none;
+    border: none;
+    color: #9c6b12;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+
+.opinion-show-more button:hover {
+    text-decoration: underline;
+    color: #7a5310;
+}

@@ -1,0 +1,124 @@
+/* ================================================
+   Weather Widget
+   ================================================ */
+.weather-widget {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 26px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: 'Pretendard', sans-serif;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.weather-widget:hover .weather-temp,
+.weather-widget:hover .weather-location,
+.weather-widget:hover .weather-humidity {
+    color: #000;
+}
+
+/* 날씨 아이콘 (해/비/눈) */
+.weather-icon-wrap {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.weather-svg-icon {
+    width: 17px;
+    height: 17px;
+}
+
+/* 온도 */
+.weather-temp {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
+    margin-left: 1px;
+}
+
+/* 구분선 */
+.weather-divider {
+    width: 1px;
+    height: 11px;
+    background-color: #ddd;
+    margin: 0 5px;
+    flex-shrink: 0;
+}
+
+/* 위치/습도 보조 아이콘 */
+.weather-meta-icon {
+    width: 13px;
+    height: 13px;
+    color: #aaa;
+    flex-shrink: 0;
+    margin-right: 2px;
+}
+
+/* 위치명 */
+.weather-location {
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    letter-spacing: -0.2px;
+}
+
+/* 습도 */
+.weather-humidity {
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+}
+
+
+/* 출처 표시 (공공데이터 저작자표시) */
+.weather-source {
+    font-size: 10px;
+    font-weight: 400;
+    color: #aaa;
+    margin-left: 4px;
+    flex-shrink: 0;
+}
+
+/* 정보 없음 */
+.weather-unavailable {
+    font-size: 11px;
+    color: #aaa;
+    font-weight: 400;
+}
+
+/* 로딩 스켈레톤 */
+.weather-skeleton {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.weather-skeleton-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #e5e5e3;
+    animation: weather-skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+.weather-skeleton-bar {
+    width: 72px;
+    height: 9px;
+    border-radius: 4px;
+    background-color: #e5e5e3;
+    animation: weather-skeleton-pulse 1.4s ease-in-out infinite;
+    animation-delay: 0.1s;
+}
+
+@keyframes weather-skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}

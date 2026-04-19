@@ -1,0 +1,2415 @@
+/* Default: Hide Mobile Section on Desktop */
+.main-article-section-mobile {
+  display: none;
+}
+
+/* Default: Show Desktop Section */
+.main-article-section {
+  display: flex;
+}
+
+.main-page {
+  width: 100%;
+}
+
+.main-page .category-content {
+  max-width: 1320px;
+  /* 1320px -> 1380px */
+  margin: 0 auto;
+  padding: 10px 30px 40px 30px;
+  /* Reduced top padding to 10px */
+  /* 하단 패딩 40px 복구 */
+  border: none;
+  /* Removed outer border */
+}
+
+/* Main Wrapper for Carousel (Outer) */
+.main-carousel-outer {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .main-carousel-outer {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .main-carousel-outer {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 50px 30px 0 30px;
+    /* added 50px top padding */
+    box-sizing: border-box;
+  }
+}
+
+/* Visibility Toggles - Responsive behavior defined below in media queries */
+.desktop-only-section {
+  display: flex !important;
+}
+
+.mobile-only-section {
+  display: none !important;
+}
+
+/* Main Article Section (3-Column) */
+.main-page .main-article-section {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  /* Match height */
+  position: relative;
+  /* For arrow positioning */
+  padding-left: 60px;
+  padding-right: 60px;
+  box-sizing: border-box;
+  /* Compress content inside arrows */
+  min-height: 450px;
+  /* Fix height to prevent jumping */
+}
+
+/* Carousel Track (Global - Desktop Default: Single Image, No Slide) */
+.main-page .carousel-track {
+  width: 100%;
+  height: 100%;
+  /* No transform on desktop */
+}
+
+.main-page .carousel-slide {
+  /* Hide all by default */
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* Ensure absolute children (title) stay inside slide */
+}
+
+.main-page .carousel-slide.active {
+  /* Show only active */
+  display: block;
+}
+
+.main-page .carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-page .main-right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Ensure it takes full height */
+}
+
+.main-page .article-info-side {
+  flex: 0 0 auto;
+  /* Don't grow, take necessary space */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.main-page .info-divider {
+  width: 100%;
+  height: 1px;
+  /* Increased from 0.5px for visibility */
+  background-color: #ccc;
+  margin: 10px 0 10px 0;
+}
+
+
+
+.main-page .article-info-side h2 {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.main-page .article-info-side h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.main-page .article-info-side p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.main-page .main-image-column {
+  flex: 2.31;
+  /* Increased from 2.1 by 10% */
+  /* Reduced from 2.7 by ~20% */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Reduced from 15px */
+  position: relative;
+}
+
+.main-page .article-image-center {
+  /* flex: 1.44; Removed */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  border: none;
+  /* aspect-ratio: 1.8 / 1; Removed to fill height */
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+
+
+.main-page .article-image-center img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  /* Move image focus down slightly */
+  position: relative;
+  z-index: 2;
+}
+
+.main-page .image-placeholder-text {
+  position: absolute;
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Styles for Top Main Image Text */
+.main-page .main-image-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: #fff;
+  z-index: 3;
+  text-align: left;
+  box-sizing: border-box;
+  display: none;
+  /* Hidden by default (Desktop) */
+}
+
+.main-page .main-image-text h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  color: #fff;
+  text-align: left;
+}
+
+/* Carousel Controls (Hidden by default) */
+.main-page .carousel-arrow {
+  display: block;
+  /* Show arrows */
+  position: absolute;
+  top: 195px;
+  /* Half of 390px (max-height of image) to center on image */
+  transform: translateY(-50%);
+  background: transparent;
+  /* Remove background */
+  color: #333 !important;
+  /* Dark grey color for visibility outside photo */
+  text-shadow: none !important;
+  border: none;
+  padding: 15px 10px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 80px;
+  /* Greatly increased size */
+  font-weight: 200;
+  /* Slightly thicker than 100 for visibility */
+  line-height: 1;
+  transition: all 0.2s;
+}
+
+.main-page .carousel-arrow:hover {
+  background: transparent;
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.main-page .prev-arrow {
+  left: -70px;
+  /* Move outside image to the left */
+}
+
+.main-page .next-arrow {
+  right: -5px;
+  /* Positioned at the far right of the entire section */
+}
+
+.main-page .carousel-dots-mobile {
+  display: flex !important;
+  /* Force display */
+  justify-content: center;
+  gap: 8px;
+  position: absolute;
+  bottom: 0px;
+  /* Position below content */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
+  margin-top: 0;
+}
+
+.main-page .carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.main-page .carousel-dot.active {
+  background: #333;
+}
+
+/* Mobile Carousel Refinements */
+.main-page .mobile-carousel-desc {
+  display: none;
+  /* Desktop hidden */
+}
+
+/* Mobile-Only Highlights Section (Hidden by default) */
+.main-page .carousel-highlights-mobile {
+  display: none;
+}
+
+.main-page .ai-news-badge {
+  display: block;
+  width: fit-content;
+  margin: 0 0 8px 5%;
+  /* Aligned to the left of the 90% width image */
+  background-color: transparent;
+  color: #000;
+  padding: 0 0 2px 0;
+  /* Padding below text for underline spacing */
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-bottom: 2px solid #000;
+  z-index: 4;
+  letter-spacing: 0.5px;
+}
+
+.main-page .main-image-text p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+  margin: 0;
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+.main-page .bottom-grid-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 60px;
+  margin-bottom: 0;
+}
+
+.main-page .grid-item {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.main-page .grid-image {
+  position: relative;
+  border: 1px solid #000;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 50%;
+}
+
+
+
+.main-page .grid-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.main-page .grid-info {
+  width: 50%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-page .grid-info h3 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  color: #000;
+  font-weight: bold;
+}
+
+.main-page .grid-info p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.main-page .section-divider {
+  border-top: 1px solid #ccc;
+  margin: 50px 0;
+}
+
+.main-page .full-width-divider {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-top: px solid #d9d9d9;
+  /* Slightly darker gray for visibility */
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.main-page .mobile-only-divider {
+  display: none;
+}
+
+.main-page .divider {
+  border-top: 1px solid #000000;
+  margin: 50px 0;
+}
+
+/* AI Recommended Section */
+.main-page .ai-recommended-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #1a1a1a;
+  /* 10% Lighter */
+  color: #fff;
+  padding: 54px 0;
+  /* Reduced by 10% from 60px */
+  margin-top: 36px;
+  /* Reduced by 10% from 40px */
+  margin-bottom: 90px;
+  /* Reduced by 10% from 100px */
+}
+
+.main-page .ai-content-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+  /* Ensure content starts on the left */
+}
+
+.main-page .ai-recommended-section h3 {
+  font-size: 21px;
+  /* Matched to Politics/Economy */
+  font-weight: 800;
+  margin-bottom: 20px;
+  /* Matched (was 30px) */
+  text-align: left;
+  color: #fff;
+  display: inline-block;
+  /* Makes width match text */
+  border-bottom: 3px solid #fff;
+  /* Increased thickness */
+  padding-bottom: 5px;
+  /* Reduced spacing */
+  align-self: flex-start;
+  /* Prevent stretching in flex container */
+}
+
+.main-page .ai-layout-split {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.main-page .ai-main-content-right {
+  flex: 1;
+  /* Was ai-main-image-container flex: 1 */
+  display: flex;
+  flex-direction: column;
+}
+
+.main-page .ai-main-image-container {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 1.5 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 30px;
+}
+
+.main-page .ai-main-image-container::before,
+.main-page .ai-main-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.main-page .ai-main-image-container::before {
+  background: linear-gradient(to right, #1a1a1a, transparent 15%, transparent 85%, #1a1a1a);
+}
+
+.main-page .ai-main-image-container::after {
+  background: linear-gradient(to bottom, #1a1a1a, transparent 15%, transparent 85%, #1a1a1a);
+}
+
+.main-page .ai-main-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.main-page .highlights-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Push content to bottom */
+  background-color: none;
+  border-left: none;
+  padding: 5px 10px;
+}
+
+.main-page .ai-related-list {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-page .ai-related-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.main-page .ai-related-item {
+  color: #fff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* Force left alignment */
+  text-align: left;
+  /* Force left text alignment */
+}
+
+.main-page .ai-related-item h4 {
+  font-size: 18px;
+  margin: 0 0 5px 0;
+  font-weight: bold;
+  color: #fff;
+  /* Ensure title is white */
+}
+
+.main-page .ai-related-item p {
+  font-size: 14px;
+  color: #ccc;
+  /* Ensure description is light gray/white */
+  line-height: 1.4;
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.main-page .ai-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+  margin: 10px 0;
+}
+
+/* Pagination */
+.main-page .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 40px 0;
+  font-size: 18px;
+}
+
+.main-page .page-num {
+  cursor: pointer;
+}
+
+.main-page .page-num.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.main-page .separator {
+  color: #ccc;
+}
+
+.main-page .empty-category {
+  text-align: center;
+  padding: 100px 0;
+  color: #666;
+  font-size: 18px;
+  border: 1px dashed #ccc;
+  margin: 20px 0;
+}
+
+/* Main Split Layout (7:3) */
+.main-page .main-content-split {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.main-page .main-left-col {
+  flex: 7;
+  /* 70% width */
+  min-width: 0;
+  /* Prevent flex overflow */
+}
+
+.main-page .vertical-divider {
+  width: 1px;
+  background-color: #ccc;
+  align-self: stretch;
+  /* Full height */
+}
+
+.main-page .main-right-col {
+  flex: 3;
+  /* 30% width */
+  min-width: 0;
+}
+
+
+
+
+/* Category Box Section (Politics & Economy) */
+.main-page .category-detailed-section {
+  margin-top: 50px;
+  border-top: 1px solid #eee;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.main-page .cat-split-row {
+  display: flex;
+  flex-direction: column;
+  /* 세로 나열 */
+  gap: 60px;
+}
+
+.main-page .cat-box-column {
+  width: 100%;
+}
+
+.main-page .cat-box-header {
+  font-size: 22px;
+  /* 헤더 크기 약간 조정 */
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  position: relative;
+  /* padding-bottom: 15px; Removed */
+  /* border-bottom: 1px solid #eee; Removed */
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+.main-page .cat-box-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 1x4 그리드 */
+  gap: 20px;
+}
+
+.main-page .cat-box-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.2s ease;
+}
+
+.main-page .cat-box-card:hover {
+  transform: translateY(-5px);
+}
+
+.main-page .cat-box-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.main-page .cat-box-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-page .cat-box-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main-page .cat-box-title {
+  font-size: 16px;
+  /* 1x4 환경에 맞춰 약간 축소 */
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.4;
+  color: #000;
+}
+
+.main-page .cat-box-desc {
+  font-size: 13px;
+  /* 1x4 환경에 맞춰 약간 축소 */
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* 두 줄로 제한하여 깔끔하게 표시 */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .main-page .cat-box-grid {
+    grid-template-columns: 1fr;
+    /* 모바일은 1개씩 */
+    gap: 40px;
+  }
+
+  .main-page .cat-box-header {
+    font-size: 22px;
+  }
+}
+
+.main-page .cat-box-list-item p {
+  font-size: 11px;
+  /* Reduced from 13px */
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Global Section */
+.main-page .cat-global-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+  /* 내부 요소 왼쪽 정렬 기본값 */
+  align-items: flex-start;
+}
+
+.main-page .global-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.main-page .global-grid.science-grid {
+  grid-template-columns: 1fr;
+}
+
+.main-page .global-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.main-page .global-img {
+  width: 90%;
+  /* Reduced by 10% */
+  aspect-ratio: 16 / 9;
+  /* border: 1px solid #000; Removed */
+  overflow: hidden;
+  border-radius: 5px;
+  /* Added roundness */
+}
+
+.main-page .global-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-page .global-card h4 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.main-page .science-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  text-align: left;
+}
+
+.main-page .science-card .global-img {
+  width: calc(60% - 90px);
+  aspect-ratio: 16 / 9;
+  flex: none;
+}
+
+.main-page .science-info {
+  flex: 1;
+}
+
+.main-page .science-card h5 {
+  font-size: 24px;
+  /* IT/과학 섹션 타이틀 크기 조정 */
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+/* 추가 스타일 병합 */
+.main-page .ai-news-header {
+  margin-bottom: 20px;
+}
+
+.main-page .main-article-section {
+  margin-bottom: 30px;
+}
+
+.main-page .society-section {
+  border-top: none;
+  margin-top: 25px;
+}
+
+.main-page .science-section {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 30px;
+  /* 상단 여백 추가 */
+  padding-left: 30px;
+  /* 좌측 패딩 추가 */
+  padding-right: 30px;
+  /* 우측 패딩 추가 */
+  padding-bottom: 30px;
+  /* 하단 여백 추가 */
+}
+
+.main-page .header-right-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
+  width: auto;
+}
+
+.main-page .search-input-wrapper {
+  position: relative;
+}
+
+.main-page .skeleton-wrapper {
+  padding: 20px 0;
+}
+
+.main-page .skeleton-grid-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.main-page .main-full-col {
+  width: 100%;
+  text-align: left;
+}
+
+.main-page .pol-eco-wrapper {
+  display: flex;
+  gap: 0;
+  margin-top: 40px;
+}
+
+.main-page .pol-eco-column {
+  flex: 1;
+  border-right: none;
+  padding-right: 0;
+}
+
+
+/* Complex Grid Layout (Politics, Economy, Society) */
+.main-page .complex-grid-section {
+  display: flex;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+  /* 회색으로 변경 */
+  margin-left: -30px;
+  /* 부모 패딩 상쇄 */
+  margin-right: -30px;
+  /* 부모 패딩 상쇄 */
+  width: calc(100% + 60px);
+  /* 전체 너비 확장 */
+  border-bottom: 1px solid #ccc;
+  /* 하단 보더 추가 (박스 닫기) */
+}
+
+.main-page .complex-left-col {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* border-right moved to pseudo-element for spacing */
+  padding-right: 0;
+  /* 패딩 제거 (구분선 연결을 위해) */
+  padding-top: 0;
+  /* 내부 섹션에서 처리 */
+}
+
+/* Vertical Divider with Spacing */
+.main-page .complex-left-col::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 30px;
+  /* Top spacing */
+  bottom: 30px;
+  /* Bottom spacing */
+  width: 1px;
+  background-color: #ccc;
+  /* Match original border color */
+}
+
+.main-page .complex-right-col {
+  flex: 1;
+  padding-left: 30px;
+  padding-right: 30px;
+  /* 우측 패딩 추가 */
+  padding-top: 30px;
+}
+
+/* New divider contained within the column */
+.main-page .complex-inner-divider {
+  width: calc(100% - 30px);
+  /* Leave 30px gap on the right */
+  border-top: 1px solid #ccc;
+  margin: 0;
+  /* 마진 초기화 */
+}
+
+/* Mobile specific styling for dividers will be handled in media query */
+
+/* Politics Section (3x2 Grid) */
+.main-page .politics-section {
+  padding-left: 30px;
+  /* 좌측 패딩 추가 */
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  /* 40px -> 30px 조정 */
+}
+
+.main-page .politics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding-top: 10px;
+}
+
+.main-page .politics-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.main-page .politics-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.main-page .politics-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-page .politics-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.main-page .politics-desc {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Economy Section (Vertical 1 Column) */
+.main-page .economy-column-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.main-page .economy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.main-page .economy-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.main-page .economy-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-page .economy-title {
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Society Large Section (Horizontal) */
+.main-page .society-large-section {
+  padding-top: 40px;
+}
+
+.main-page .society-large-card {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.main-page .society-large-img {
+  flex: 1;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.main-page .society-large-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-page .society-large-info {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.main-page .society-large-title {
+  font-size: 34px;
+  /* Increased by 10px from 24px */
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.main-page .society-large-desc {
+  font-size: 15px;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+
+/* =========================================
+   Mobile Responsive Adjustments (Max 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+
+  /* --- Global Container --- */
+  .main-page .category-content {
+    padding: 20px 15px;
+  }
+
+  .main-page .full-width-divider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* --- Main Article Section (Top 3 Columns) --- */
+  /* --- Main Article Section (Top 3 Columns) --- */
+  /* This section is Desktop Only so it should be hidden on Mobile.
+     The .main-article-section rule below was causing it to display.
+     REMOVED to prevent duplication. */
+
+  /* --- Mobile Visibility Toggles --- */
+  .desktop-only-section {
+    display: none !important;
+  }
+
+  .mobile-only-section {
+    display: block !important;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Force hide AI News Header */
+  /* Force hide AI News Header - REMOVED for new mobile requirement */
+  /* .ai-news-header { display: none !important; } */
+
+  /* --- Mobile Full Slider Styling --- */
+  .mobile-full-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .mobile-slide-track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  .mobile-whole-slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Separation between Image Part and Highlights Part */
+  }
+
+  .mobile-slide-top {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+    /* overflow: hidden removed — buttons are absolutely positioned inside here */
+  }
+
+  .mobile-slide-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Ensure Overlay Title is Visible */
+  /* --- Mobile Tab Bar (Text Tabs) --- */
+  .mobile-tab-bar {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+    /* Hide scrollbar */
+  }
+
+  .mobile-tab-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-tab-item {
+    padding: 15px 15px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #888;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .mobile-tab-item.active {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+  }
+
+  .main-article-section-mobile .mobile-slide-top .main-image-text {
+    display: block !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 20px !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent) !important;
+    color: #fff !important;
+    z-index: 10 !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+
+  .main-article-section-mobile .mobile-slide-top .main-image-text h3 {
+    color: #fff !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+  }
+
+  /* 모바일 슬라이드 prev/next 버튼 — inside .mobile-slide-top (position: relative, same aspect-ratio) */
+  .mobile-slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 80px;
+    font-weight: 200;
+    line-height: 1;
+    padding: 15px 10px;
+    display: block !important;
+    text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.7);
+    transition: all 0.2s;
+  }
+
+  .mobile-slide-nav:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .mobile-slide-nav.prev {
+    left: -5px;
+  }
+
+  .mobile-slide-nav.next {
+    right: -5px;
+  }
+
+  .mobile-slide-bottom {
+    width: 100%;
+  }
+
+  .mobile-slide-bottom .highlights-title {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    display: block !important;
+    margin-top: 20px !important;
+    margin-bottom: 8px !important;
+    background: none !important;
+    padding-left: 20px !important;
+    padding-right: 0 !important;
+  }
+
+  /* Fix for Carousel Dots overlapping content */
+  .main-page .carousel-dots-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+    /* Push dots below content */
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .main-page .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ddd;
+    transition: background-color 0.3s;
+  }
+
+  .main-page .carousel-dot.active {
+    background-color: #333 !important;
+    /* Darker active dot */
+  }
+
+
+  /* Hide Side Columns on Mobile to focus on Carousel */
+  /* Re-showing components for Mobile Layout (User Request) */
+  .main-page .highlights-side {
+    display: flex !important;
+    order: 3;
+    width: 100%;
+    margin-top: 15px;
+    padding: 0;
+    /* Removing padding to match image width */
+  }
+
+  /* --- VISIBILITY CONTROL --- */
+  .main-article-section {
+    display: none !important;
+  }
+
+  .main-article-section-mobile {
+    display: block !important;
+  }
+
+  /* ------------------------- */
+
+  .main-page .article-info-side {
+    display: none !important;
+    /* Hide external title container on mobile */
+  }
+
+  /* Hide Description on Mobile */
+
+  .main-page .main-article-section .main-right-col {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    order: 2;
+    /* margin-top: 15px; */
+    padding: 0 !important;
+    /* User correction: remove padding, not margin */
+  }
+
+  /* 2. Main Image (Center) -> Primary Carousel */
+  .main-page .main-image-column {
+    flex: auto;
+    width: 100%;
+    order: 1;
+  }
+
+  /* Show Carousel Controls on Mobile */
+  /* Show Carousel Controls on Mobile - HIDDEN as per request */
+  .main-page .carousel-arrow {
+    display: none !important;
+  }
+
+  /* Carousel Track for Slide Animation (Mobile Only) */
+  .main-page .carousel-track {
+    display: flex;
+    flex-direction: row;
+    /* Ensure side-by-side */
+    width: 100%;
+    height: 100%;
+    transform: var(--slide-transform, none);
+    /* Use CSS var from JSX */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .main-page .carousel-slide {
+    display: block;
+    /* Show all slides for sliding */
+    min-width: 100%;
+    flex: 0 0 100%;
+    height: 100%;
+  }
+
+
+  .main-page .carousel-dots-mobile {
+    display: flex;
+  }
+
+  .main-page .mobile-carousel-desc {
+    display: -webkit-box;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 5px 0 0 0;
+    line-height: 1.4;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .main-page .carousel-highlights-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 0 5px;
+  }
+
+
+
+  .main-page .article-image-center {
+    width: 100%;
+    /* Full width */
+    height: 110vh !important;
+    /* Force full viewport height + extra */
+    aspect-ratio: auto !important;
+    /* Override explicit aspect ratio */
+    max-height: none !important;
+    /* Unlock height limit */
+  }
+
+  .main-page .main-image-text {
+    display: block !important;
+    /* Show overlay title on mobile */
+  }
+
+  .main-page .ai-news-badge {
+    margin-left: 0;
+    font-size: 18px;
+  }
+
+  /* 3. Highlights (Right - originally part of left/right flow or separate?)
+     Wait, .article-info-side was the left column.
+     .highlights-container is inside .article-info-side? No, let's check structure.
+     Structure seems to be: info-side | image-column | (maybe another side? No, it's 3-column usually but CSS showed 2 main flex items: info-side, main-image-column)
+     Wait, lines 14-19: .main-article-section { display: flex; gap: 16px; align-items: stretch; }
+     .article-info-side { flex: 1; }
+     .main-image-column { flex: 2.7; }
+     So it's 2 columns.
+  */
+
+  /* 3. Highlights (Right) - Now moved to bottom */
+  .main-page .highlights-side {
+    order: 3;
+    width: 100%;
+  }
+
+  /* --- Highlights Container --- */
+  .main-page .highlights-container {
+    flex-direction: column;
+    /* Stack highlights */
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .main-page .highlight-divider {
+    display: none;
+    /* Hide vertical dividers */
+  }
+
+  .main-page .highlight-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+
+  .main-page .highlight-item:last-child {
+    border-bottom: none;
+  }
+
+  .main-page .cat-box-header.ai-news-header {
+    position: static;
+    color: #000;
+    text-shadow: none;
+    font-size: 22px;
+    margin: 25px 0 15px 0;
+    /* Added top margin for gap */
+    width: 100%;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding-left: 20px;
+    /* Added left padding for gap */
+    text-align: left;
+    font-weight: 800;
+    transform: none !important;
+    box-sizing: border-box;
+  }
+
+  /* --- Global Container --- */
+  .main-page .category-content {
+    padding: 10px 15px !important;
+  }
+
+  /* Main Article Section - Standard Flow */
+  .main-page .main-article-section-mobile {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    padding: 0 15px !important;
+  }
+
+  .main-page .main-image-column {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .main-page .article-image-center {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1.5 / 1 !important;
+  }
+
+  .main-page .main-image-text {
+    position: relative !important;
+    background: #fff !important;
+    color: #000 !important;
+    padding: 15px 0 !important;
+    display: block !important;
+  }
+
+  .main-page .main-image-text h3 {
+    color: #000 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+  }
+
+  /* Target all primary article titles to be 20px on mobile */
+  .main-page .politics-title,
+  .main-page .economy-title,
+  .main-page .cat-box-title,
+  .main-page .grid-info h3,
+  .main-page .society-large-title,
+  .main-page .world-large-title {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+  }
+
+  .main-page p {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+  .main-page .carousel-dots-mobile {
+    margin-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* --- Bottom Grid Section (2 items) --- */
+  .main-page .bottom-grid-section {
+    grid-template-columns: 1fr;
+    /* Stack vertically */
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .main-page .grid-item {
+    flex-direction: column;
+    /* Stack image and text */
+    gap: 15px;
+  }
+
+  .main-page .grid-image {
+    width: 100%;
+    /* Full width */
+  }
+
+  .main-page .grid-info {
+    width: 100%;
+  }
+
+  /* --- AI Recommended Section --- */
+  .main-page .ai-recommended-section {
+    display: none !important;
+  }
+
+  .main-page .ai-layout-split {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .main-page .ai-main-content-right {
+    flex: auto;
+  }
+
+  .main-page .ai-main-image-container {
+    width: 100%;
+    aspect-ratio: 1.5 / 1;
+  }
+
+  .main-page .ai-related-list {
+    gap: 20px;
+  }
+
+  /* --- Category Sections (Politics/Economy Split) --- */
+  .main-page .main-content-split {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .main-page .main-left-col {
+    width: 100%;
+    flex: auto;
+  }
+
+  .main-page .vertical-divider {
+    display: none;
+    /* Hide vertical line */
+  }
+
+  .main-page .main-right-col {
+    width: 100%;
+    flex: auto;
+  }
+
+  /* Inside Left Column: Cat Split Row */
+  .main-page .cat-split-row {
+    flex-direction: column !important;
+    margin-bottom: 20px;
+  }
+
+  .main-page .category-detailed-section {
+    padding-bottom: 0;
+  }
+
+  /* Add divider between stacked columns (Politics / Economy) */
+  .main-page .cat-split-row .cat-box-column:first-child {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+    margin-bottom: 10px;
+  }
+
+  .main-page .cat-box-main {
+    flex-direction: column !important;
+  }
+
+  .main-page .cat-box-img {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    border-radius: 5px;
+  }
+
+  .main-page .cat-box-info {
+    padding: 0 15px;
+  }
+
+  /* --- Top 10 Section (Sidebar -> Stacked) --- */
+  .main-page .top10-section {
+    height: auto;
+    /* Allow full height */
+    overflow: visible;
+  }
+
+  .main-page .top10-grid {
+    grid-template-columns: 1fr;
+    /* Add simple list view */
+  }
+
+  /* --- Global News Grid --- */
+  .main-page .global-grid {
+    grid-template-columns: 1fr;
+    /* 1 column */
+  }
+
+  .main-page .global-img {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    border-radius: 5px;
+  }
+
+  /* Society Mobile Grid: Default Category Layout (Vertical) */
+  .main-page .society-mobile-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .main-page .culture-mobile-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  /* Fix for Title alignment and gap on Mobile - REMOVED redundant hidden block */
+  /* .main-page .cat-box-header.ai-news-header { ... } */
+
+  /* Force divider to show on mobile */
+  .main-page .mobile-only-divider {
+    display: block !important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  /* Science Section Mobile Override */
+  .main-page .science-card {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    align-items: stretch;
+    /* Ensure child can expand */
+  }
+
+  .main-page .science-card .global-img {
+    width: calc(100% + 30px);
+    margin-left: -15px;
+  }
+
+  .main-page .global-card {
+    align-items: stretch;
+    /* Ensure negative margins work reliably */
+  }
+
+  .main-page .science-card h5 {
+    font-size: 20px;
+  }
+
+  /* --- Mobile Border Optimizations (Hide Desktop Borders) --- */
+  .main-page .category-content {
+    border: none !important;
+    /* 모바일 전체 테두리 제거 */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .main-page .complex-grid-section {
+    border-top: none !important;
+    border-bottom: none !important;
+    /* 모바일 하단 보더 제거 */
+    margin-left: 0 !important;
+    /* 네거티브 마진 해제 */
+    margin-right: 0 !important;
+    /* 네거티브 마진 해제 */
+    width: 100% !important;
+    /* 너비 원복 */
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .main-page .politics-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .main-page .society-large-card,
+  .main-page .world-large-card {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .main-page .complex-left-col {
+    border-right: none !important;
+    padding-right: 0 !important;
+    /* 모바일 우측 패딩 제거 */
+  }
+
+  .main-page .complex-right-col {
+    padding-left: 20px !important;
+    /* 모바일 전용: 가독성 여백 */
+    padding-right: 20px !important;
+    /* 모바일 전용: 가독성 여백 */
+    padding-top: 0 !important;
+  }
+
+  .main-page .politics-section,
+  .main-page .society-large-section,
+  .main-page .science-section,
+  .main-page .world-large-section {
+    padding-left: 20px !important;
+    /* 모바일 전용: 가독성 여백 */
+    padding-right: 20px !important;
+    /* 모바일 전용: 가독성 여백 */
+    padding-top: 0 !important;
+    padding-bottom: 30px !important;
+  }
+
+  .main-page .complex-inner-divider {
+    display: none !important;
+    /* 섹션 사이 구분선 다시 숨김 */
+    border-top: none !important;
+  }
+
+  /* Create a divider for Economy section as well */
+  .main-page .complex-right-col {
+    border-top: none !important;
+    /* 경제 섹션 위 구분선 제거 */
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* --- Category Title Black Dividers (Mobile) - REMOVED to match Politics Page --- */
+  /* Reverting to simple style */
+
+  /* Article Separators (Mobile) - Standard Border */
+  .main-page .politics-card:not(:last-child),
+  .main-page .society-mobile-grid div:not(:last-child),
+  .main-page .culture-mobile-grid div:not(:last-child),
+  .main-page .science-section .science-card:not(:last-child) {
+    /* Light grey like standard list */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* --- VISIBILITY CONTROL (Consolidated) --- */
+  /* Ensure Desktop Section is HIDDEN on Mobile */
+  .main-page .main-article-section,
+  .desktop-only-section {
+    display: none !important;
+  }
+
+  /* Ensure Mobile Section is SHOWN on Mobile */
+  .main-page .main-article-section-mobile,
+  .mobile-only-section {
+    display: block !important;
+  }
+}
+
+/* --- Analysis Block Interactive Styles --- */
+.main-page .analysis-block {
+  flex: 1;
+  /* Stretch to fill available height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Center content vertically */
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: none;
+  /* Removed divider */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+  /* Ensure positioning context for pseudo-element */
+  overflow: hidden;
+  /* Hide the bookmark element when it slides in/out */
+}
+
+/* Society Large Block */
+.main-page .society-large-section {
+  padding-left: 30px;
+  /* 좌측 패딩 추가 */
+  padding-right: 30px;
+  /* 우측 패딩 추가 */
+  padding-top: 30px;
+  /* 상단 여백 추가 */
+  padding-bottom: 30px;
+  /* 하단 여백 추가 */
+}
+
+/* World Large Block */
+.main-page .world-large-section {
+  padding: 30px;
+}
+
+.main-page .world-large-card {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.main-page .world-large-img {
+  flex: 1;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.main-page .world-large-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-page .world-large-info {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.main-page .world-large-title {
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.main-page .world-large-desc {
+  font-size: 15px;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.main-page .world-large-card:hover .world-large-title {
+  text-decoration: underline;
+}
+
+/* Hover: Underline ONLY the title of the hovered block */
+.main-page .analysis-block:hover h2 {
+  text-decoration: underline;
+}
+
+
+/* Active State: Black Background, White Text, Visual Connection */
+/* Active State: Black Background, White Text, Visual Connection */
+.main-page .analysis-block.active {
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  /* Border removed */
+  /* Border removed */
+  position: relative;
+  overflow: visible;
+  /* Allow arrow to stick out */
+  padding-top: 0 !important;
+  /* Align title with image top */
+  justify-content: flex-start;
+  /* Ensure content starts at top */
+}
+
+/* Force title to inherit black color in active state. Description should follow its own style (grey). */
+.main-page .analysis-block.active h2,
+.main-page .analysis-block.active .analysis-title {
+  color: #000 !important;
+  /* Ensure title is black */
+}
+
+/* Arrow pointing to Main Image */
+/* Arrow pointing to Main Image - Restored and colored black */
+/* Bidirectional Arrows for Active State */
+
+/* Right Arrow (::after) - unchanged position */
+/* Bidirectional Arrows for Active State - REMOVED */
+
+/* Right Arrow (::after) */
+.main-page .analysis-block.active::after {
+  display: none;
+}
+
+/* Left Arrow (::before) */
+.main-page .analysis-block.active::before {
+  display: none;
+}
+
+
+/* --- Refactored Inline Styles & Animations --- */
+
+/* Fade Animation */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-animate {
+  animation: fadeEffect 0.2s ease-in-out;
+}
+
+/* Refactored Layout Styles */
+.main-page .analysis-title {
+  font-size: 18px;
+  line-height: 1.3;
+  height: 2.6em;
+  /* Fixed height for 2 lines to stabilize container height */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 5px;
+  /* Fixed gap between title and desc */
+}
+
+.main-page .analysis-desc {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #575757 !important;
+  margin-top: 0;
+  /* Reset default margin */
+}
+
+/* Re-purposed article-info-side inside right col */
+/* Styles moved to .main-right-col block */
+
+/* Main Image Column (Desktop) */
+@media screen and (min-width: 769px) {
+
+  /* Main Image Column */
+  .main-page .main-image-column {
+    flex: 0.62;
+    /* Increased from 0.56 by 10% */
+    /* Reduced from 0.7 by 20% */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* Allow height to match neighbors (flex stretch default) */
+  }
+
+  /* Image styling to fill height */
+  /* Image styling to fill height */
+  /* Image styling to fill height */
+  .main-page .article-image-center {
+    /* Force height reduction by setting max-height */
+    max-height: 390px;
+    /* Adjust this value as needed or use percentage if parent has height */
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 21 / 9 !important;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0 auto;
+    /* Center it if width < 100% */
+  }
+}
+
+/* Main Right Column (Wraps Info & Highlights) */
+.main-page .main-right-col {
+  flex: 0.9;
+  /* Balance with Image Column (2.1 vs 0.9) */
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  /* Gap between Info and Highlights */
+  padding-left: 20px;
+}
+
+.main-page .article-info-side {
+  flex: 0 0 auto;
+  /* Do not stretch, just take needed space */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-page .highlights-side {
+  flex: 1;
+  /* Fill remaining vertical space */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-page .highlights-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 0px;
+  border-bottom: none;
+  /* Removed divider */
+  text-align: left;
+  display: inline-flex;
+  /* Use flex for vertical centering */
+  align-items: center;
+  /* Vertically center stars and text */
+  background: linear-gradient(to top, #ffeeba 40%, transparent 40%);
+  /* Soft yellow highlight */
+  padding-left: 5px;
+  padding-right: 5px;
+  /* Add padding for highlight */
+  color: #333;
+}
+
+.main-page .highlights-title::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url('../components/star.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 0px;
+  vertical-align: middle;
+  transform: rotate(30deg);
+}
+
+.main-page .highlights-title::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url('../components/star.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 5px;
+  vertical-align: middle;
+  transform: rotate(-10deg);
+}
+
+.main-page .highlight-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* Occupy remaining space instead of fixed 100% */
+  justify-content: flex-start;
+  gap: 0px;
+  overflow: hidden;
+  /* Prevent overflow */
+}
+
+.main-page .highlight-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  /* Reduced gap since we use padding and borders */
+}
+
+.main-page .highlight-item {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 5px;
+  /* Slightly increased padding */
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #eee;
+  /* Added divider */
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.main-page .highlight-item:last-child {
+  border-bottom: none;
+}
+
+.main-page .highlight-keyword-row {
+  display: flex;
+  align-items: center;
+  /* Centered vertically */
+  width: 100%;
+  margin-bottom: 15px;
+  /* Push content down */
+}
+
+.main-page .highlight-check-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+  /* Reduced gap */
+  margin-bottom: 0px;
+  /* Restored bottom margin */
+  object-fit: contain;
+}
+
+.main-page .highlight-keyword {
+  color: #303030 !important;
+  background-color: transparent !important;
+  /* Changed to Black */
+  font-weight: 700 !important;
+  font-size: 19px !important;
+  margin-top: 0px !important;
+  /* Remove top margin for center alignment */
+  margin-bottom: 0px !important;
+  /* Handled by row */
+  display: inline-block;
+  /* Ensure relative positioning for potential future use */
+  position: relative;
+  z-index: 5;
+  /* Ensure text is above line */
+}
+
+/* New Container for Text + Line Image */
+.main-page .highlight-text-container {
+  display: inline-block;
+  /* Changed to inline-block for tight wrapping */
+  position: relative;
+}
+
+.main-page .highlight-line-img {
+  position: absolute;
+  /* Force overlap */
+  bottom: -22px;
+  /* Position slightly up from bottom */
+  left: 0;
+  width: 100%;
+  height: 40px;
+  /* Fixed height for consistent look */
+  opacity: 0.7;
+  z-index: 30;
+  /* Behind text */
+  pointer-events: none;
+  /* Click-through */
+}
+
+
+
+.main-page .highlight-content {
+  font-size: 16px !important;
+  font-weight: 400;
+  color: #414141 !important;
+  /* Changed to 12px */
+  line-height: 1.5 !important;
+  margin-top: -5px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* Show only 2 lines */
+  margin: 0;
+}
+
+/* --- Global Article Hover Effects --- */
+
+/* 1. Main Slide Image Title Hover */
+.main-page .article-image-center:hover .main-image-text h3 {
+  text-decoration: underline;
+}
+
+/* 2. Category Box (Politics/Economy) - Main Article */
+.main-page .cat-box-main:hover .cat-box-title {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 3. Category Box - List Items */
+.main-page .cat-box-list-item:hover h3 {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 4. Global Grid Cards (Society/Culture/Science/World) */
+.main-page .global-card:hover h4,
+.main-page .global-card:hover h5 {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 5. Bottom Grid Section */
+.main-page .grid-item:hover h3 {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 6. AI Related Items */
+/* 6. AI Related Items */
+.main-page .ai-related-item:hover h4 {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* --- FIX: Strict Hover Isolation for Article Info Side --- */
+
+/* 1. Reset: When hovering the CONTAINER, do NOT underline children */
+.main-page .article-info-side:hover h2,
+.main-page .article-info-side:hover h3 {
+  text-decoration: none !important;
+}
+
+/* 2. Re-apply: ONLY underline the individual BLOCKS when hovered explicitly */
+.main-page .analysis-block:hover h2 {
+  text-decoration: underline !important;
+}
+
+/* 3. Ensure Active State title persists (White) even if container is hovered. Description should follow its own style (grey). */
+.main-page .analysis-block.active h2 {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+/* Allow underline on hover even if active */
+.main-page .analysis-block.active:hover h2 {
+  text-decoration: underline !important;
+}
+
+/* --- FIX: Strict Hover Isolation for Politics/Economy (Bottom Section) --- */
+
+/* 1. Reset: When hovering the CONTAINER (Column), do NOT underline children */
+.main-page .cat-box-column:hover .cat-box-title,
+.main-page .cat-box-column:hover .cat-box-list-item h3 {
+  text-decoration: none !important;
+}
+
+/* 2. Re-apply: ONLY underline the individual BLOCKS when hovered explicitly */
+
+/* A. Main Article Text Group Hover */
+.main-page .cat-box-text-group:hover .cat-box-title {
+  text-decoration: underline !important;
+}
+
+/* B. Main Article Image Hover -> Underline Title (via adjacent sibling) */
+/* Structure: .cat-box-img + .cat-box-info > .cat-box-text-group > .cat-box-title */
+/* Since text-group is inside info, we target info then text-group title */
+.main-page .cat-box-img:hover+.cat-box-info .cat-box-title {
+  text-decoration: underline !important;
+}
+
+/* C. List Item Hover */
+.main-page .cat-box-column .cat-box-list-item:hover h3 {
+  text-decoration: underline !important;
+}
+
+/* Refactored Inline Styles */
+.main-page .skeleton-grid-item {
+  flex: 1;
+}
+
+/* Main Comparison Item Styles (Clean version) */
+.main-comparison-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .main-comparison-container {
+    padding: 0 20px;
+  }
+}
+
+.main-comparison-item {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #444444;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.main-comparison-item .highlighted-media {
+  position: relative;
+  display: inline-block;
+  color: #fc4a4a;
+  font-weight: 750;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.highlight-line-icon {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  width: 112%;
+  height: 40px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.main-summary-badge {
+  display: inline-block;
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.main-comparison-evidence {
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 8px;
+  border-top: 1px dashed #e0e0e0;
+}
+
+.main-analysis-text {
+  display: inline;
+  /* To flow with badge if needed, or block */
+}
+
+/* 로고 폴백 이미지: 영역 안에 여백 두고 표시 */
+.main-page img.logo-fallback {
+  object-fit: contain !important;
+  padding: 20% !important;
+  background-color: #f5f5f5;
+}
+
+/* Fade Slide Up Animation */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-slide-up {
+  animation: fadeSlideUp 0.5s ease-out;
+}

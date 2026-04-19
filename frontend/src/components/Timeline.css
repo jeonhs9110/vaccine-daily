@@ -1,0 +1,157 @@
+.timeline-container {
+    padding: 20px 0;
+    position: relative;
+}
+
+.timeline-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #111;
+    border-left: 4px solid #333;
+    padding-left: 10px;
+}
+
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(4px);
+}
+
+/* 왼쪽 날짜/시간 영역 */
+.timeline-date-col {
+    flex: 0 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 2px;
+}
+
+.timeline-date {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #555;
+    line-height: 1.3;
+}
+
+.timeline-time {
+    font-size: 0.75rem;
+    color: #999;
+    line-height: 1.3;
+}
+
+.timeline-item.current .timeline-date {
+    color: #007bff;
+}
+
+.timeline-item.current .timeline-time {
+    color: #5aa8ff;
+}
+
+/* 중앙 dot + 세로선을 dot 기준으로 그림 */
+.timeline-dot {
+    position: relative;
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 3px solid #ccc;
+    z-index: 1;
+    margin-top: 3px;
+}
+
+/* dot 아래로 이어지는 세로선 */
+.timeline-dot::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(24px + 6px);
+    /* margin-bottom(24px) + dot간 간격 보정 */
+    background-color: #e0e0e0;
+}
+
+/* 마지막 아이템은 세로선 없음 */
+.timeline-item:last-child .timeline-dot::after {
+    display: none;
+}
+
+.timeline-item.current .timeline-dot {
+    background-color: #007bff;
+    border-color: #007bff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+}
+
+/* 오른쪽 제목 영역 */
+.timeline-content {
+    flex: 1;
+    padding-top: 1px;
+}
+
+.timeline-content-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.45;
+    text-align: left;
+}
+
+.timeline-item.current .timeline-content-title {
+    color: #007bff;
+}
+
+.timeline-loading {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.timeline-empty {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+    .timeline-item {
+        gap: 8px;
+    }
+
+    .timeline-date-col {
+        flex: 0 0 60px;
+    }
+
+    .timeline-date {
+        font-size: 0.75rem;
+    }
+
+    .timeline-time {
+        font-size: 0.7rem;
+    }
+
+    .timeline-content-title {
+        font-size: 0.88rem;
+    }
+}

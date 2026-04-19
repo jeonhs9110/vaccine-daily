@@ -1,0 +1,277 @@
+/* Container to center everything on screen */
+.create-account-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    /* MyPage background color */
+    padding-bottom: 60px;
+}
+
+/* The white card box */
+.create-account-container .create-account-box {
+    background-color: white;
+    width: 100%;
+    max-width: 520px;
+    padding: 40px;
+    border: 1px solid #eee;
+    /* Soft border */
+    border-radius: 12px;
+    /* Rounded corners like MyPage cards */
+    margin-top: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    /* Subtle shadow */
+    box-sizing: border-box;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 540px) {
+    .create-account-container .create-account-box {
+        padding: 30px 20px;
+        margin-top: 20px;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+}
+
+.create-account-container h2 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.create-account-container .description {
+    text-align: left;
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Form Layout */
+.create-account-container .input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-account-container .input-row-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.create-account-container .half {
+    width: 50%;
+}
+
+.create-account-container .create-account-box label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    text-align: left;
+}
+
+.create-account-container .sub-label {
+    font-weight: normal;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Standard Input Fields (Name, ID, Email, Select) */
+.create-account-container .create-account-box input[type="text"],
+.create-account-container .create-account-box input[type="email"],
+.create-account-container .create-account-box select {
+    width: 100%;
+    padding: 0 14px;
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* Modern rounded inputs */
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.2s;
+    background-color: white;
+    outline: none;
+    color: #333;
+}
+
+.create-account-container .create-account-box input:focus,
+.create-account-container .create-account-box select:focus {
+    border-color: #333;
+    box-shadow: 0 0 0 1px #333;
+}
+
+/* Joined Input Group (Password) */
+.create-account-container .input-group-joined {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.create-account-container .input-row-joined {
+    position: relative;
+    height: 48px;
+    width: 100%;
+}
+
+.create-account-container .input-row-joined.top {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.create-account-container .input-row-joined input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 14px;
+    font-size: 15px;
+    box-sizing: border-box;
+    display: block;
+    background: transparent;
+}
+
+/* Toggle Button inside Joined Input */
+.create-account-container .toggle-btn-joined {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #777;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Error States */
+.create-account-container .input-error {
+    border-color: #ff5a5a !important;
+}
+
+.create-account-container .error-msg {
+    color: #ff5a5a;
+    font-size: 12px;
+    margin-top: 6px;
+    display: block;
+}
+
+/* Password Feedback */
+.create-account-container .password-feedback {
+    margin-top: 8px;
+}
+
+.create-account-container .strength-meter-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.create-account-container .strength-bar {
+    height: 4px;
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Category Grid */
+.create-account-container .category-section {
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+.create-account-container .category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.create-account-container .category-box {
+    position: relative;
+    padding: 14px 10px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.2s;
+    user-select: none;
+    color: #666;
+    font-weight: 500;
+}
+
+.create-account-container .category-box:hover {
+    background-color: #f9f9f9;
+    border-color: #ddd;
+}
+
+.create-account-container .category-box.selected {
+    border: 1px solid #333;
+    background-color: #333;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-account-container .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #03c75a;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Submit Button */
+.create-account-container .submit-btn {
+    width: 100%;
+    height: 54px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-bottom: 20px;
+}
+
+.create-account-container .submit-btn:hover {
+    background-color: #000;
+}
+
+.create-account-container .login-redirect {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+.create-account-container .login-redirect span {
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}

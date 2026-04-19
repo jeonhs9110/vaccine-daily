@@ -1,0 +1,93 @@
+.ai-news-recommendation {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+}
+
+.ai-news-recommendation h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+    /* 추천 뉴스 섹션 제목 스타일 */
+    /* Recommended News Section Title Style */
+}
+
+.ai-recommendation-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* 화면이 좁을 경우 줄바꿈 허용 */
+    /* Allow wrapping on smaller screens */
+}
+
+.ai-news-card {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.ai-news-card:hover {
+    transform: translateY(-5px);
+    /* 호버 시 카드 살짝 띄우기 효과 */
+    /* Hover effect: slight lift */
+}
+
+.ai-news-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    /* 이미지 비율 유지하며 꽉 채우기 */
+    /* Fill container while maintaining aspect ratio */
+}
+
+.ai-news-card-content {
+    padding: 15px;
+}
+
+.ai-news-card h4 {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+    color: #222;
+    line-height: 1.4;
+    /* 제목 가독성을 위한 줄간격 */
+    /* Line height for title readability */
+}
+
+.ai-news-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* =========================================
+   Mobile Responsive Adjustments (Max 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .ai-news-recommendation {
+        padding: 15px;
+        margin-top: 30px;
+    }
+
+    .ai-recommendation-list {
+        flex-direction: column;
+        /* Stack cards vertically */
+    }
+
+    .ai-news-card {
+        width: 100%;
+        min-width: 0;
+        /* Override min-width */
+    }
+
+    .ai-news-card img {
+        height: 180px;
+        /* Taller image for better visibility on mobile */
+    }
+}

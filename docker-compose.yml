@@ -1,0 +1,119 @@
+version: "3.8"
+
+services:
+  # 1. PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: finalproject_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - finalproject_network
+
+  # 2. ChromaDB (이게 있어야 외부에서 접속 가능합니다!)
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: finalproject_chroma
+    restart: always
+    volumes:
+      - ./backend/chroma_db:/chroma/chroma
+    ports:
+      - "9000:8000"
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    networks:
+      - finalproject_network
+
+  # 3. Adminer (개발 전용 — 프로덕션에서는 profiles로 비활성화)
+  adminer:
+    image: adminer
+    container_name: finalproject_adminer
+    restart: always
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - finalproject_network
+    profiles:
+      - dev
+
+  # 4. Redis (개발 전용 — 현재 미사용)
+  redis:
+    image: redis:alpine
+    container_name: finalproject_redis
+    restart: always
+    ports:
+      - "127.0.0.1:6379:6379"
+    networks:
+      - finalproject_network
+    profiles:
+      - dev
+
+  # 5. Backend (FastAPI)
+  backend:
+    build: ./backend
+    container_name: finalproject_backend
+    restart: always
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      # 내부에서 크로마 서비스로 연결
+      CHROMA_MODE: remote
+      CHROMA_SERVER_HOST: chromadb
+      CHROMA_SERVER_PORT: 8000
+    working_dir: /app
+    ports:
+      - "8081:8000"
+    depends_on:
+      - postgres
+      - chromadb
+    networks:
+      - finalproject_network
+
+  # 6. Frontend
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_API_URL: http://${SERVER_IP}:8081
+        REACT_APP_WEATHER_API_KEY: ${REACT_APP_WEATHER_API_KEY}
+    container_name: finalproject_frontend
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    depends_on:
+      - backend
+    networks:
+      - finalproject_network
+
+  # 7. Certbot (SSL 인증서 발급용)
+  certbot:
+    image: certbot/certbot
+    container_name: finalproject_certbot
+    volumes:
+      - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    networks:
+      - finalproject_network
+
+networks:
+  finalproject_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

@@ -1,0 +1,296 @@
+.main-page {
+    width: 100%;
+}
+
+.main-page .category-content {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* Main Article Section (3-Column) */
+.main-page .main-article-section {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.main-page .article-info-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.main-page .info-divider {
+    width: 100%;
+    height: 1px;
+    /* Increased from 0.5px for visibility */
+    background-color: #ccc;
+    margin: 20px 0 40px 0;
+}
+
+.main-page .article-info-side h2 {
+    font-size: 23px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.main-page .article-info-side h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.main-page .article-info-side p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+.main-page .main-image-column {
+    flex: 2.7;
+    /* Increased from 2.2 by ~20% */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-page .article-image-center {
+    /* flex: 1.44; Removed */
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid #000;
+    aspect-ratio: 1.8 / 1;
+    /* align-self: flex-start; Removed */
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+
+.main-page .article-image-center img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.main-page .image-placeholder-text {
+    position: absolute;
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Styles for Top Main Image Text */
+/* Styles for Top Main Image Text */
+.main-page .main-image-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+    z-index: 3;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.main-page .main-image-text h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    color: #fff;
+    text-align: left;
+}
+
+.main-page .main-image-text p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+.main-page .highlights-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    align-items: center;
+    justify-content: center;
+    /* Added for centering */
+    /* Align items vertically center */
+}
+
+.main-page .highlight-divider {
+    width: 1px;
+    height: 40px;
+    /* Adjust height as needed */
+    background-color: #eee;
+}
+
+.main-page .highlight-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    /* Changed from flex-start */
+    text-align: center;
+    /* Changed from left */
+}
+
+.main-page .highlight-keyword {
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.main-page .highlight-content {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Bottom Grid Section (3 items) */
+.main-page .bottom-grid-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 60px;
+    margin-bottom: 0;
+}
+
+.main-page .grid-item {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.main-page .grid-image {
+    position: relative;
+    border: 1px solid #000;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 50%;
+}
+
+
+
+.main-page .grid-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.main-page .grid-info {
+    width: 50%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-page .grid-info h3 {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    color: #000;
+    font-weight: bold;
+}
+
+.main-page .grid-info p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.main-page .section-divider {
+    border-top: 1px solid #ccc;
+    margin: 50px 0;
+}
+
+.main-page .divider {
+    border-top: 1px solid #000000;
+    margin: 50px 0;
+}
+
+
+
+/* Styles for Top Main Image Text */
+.main-page .main-image-text {
+    text-align: left;
+}
+
+.main-page .main-image-text h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    color: #000;
+}
+
+.main-page .main-image-text p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+
+/* Pagination */
+.main-page .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0;
+    font-size: 18px;
+}
+
+.main-page .page-num {
+    cursor: pointer;
+}
+
+.main-page .page-num.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.main-page .separator {
+    color: #ccc;
+}
+
+.main-page .empty-category {
+    text-align: center;
+    padding: 100px 0;
+    color: #666;
+    font-size: 18px;
+    border: 1px dashed #ccc;
+    margin: 20px 0;
+}

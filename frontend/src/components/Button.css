@@ -1,0 +1,52 @@
+/* 버튼의 기본 레이아웃 및 디자인 */
+.Button {
+    /* 내부 콘텐츠(텍스트)를 가로/세로 중앙에 정렬하기 위해 flex 사용 */
+    display: inline-flex;
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+
+    /* 버튼의 기본 테두리 제거 */
+    border: none;
+
+    /* 이미지처럼 글자를 강조하기 위해 폰트 두께를 굵게 설정 */
+    font-weight: 500;
+
+    /* 마우스 커서를 손가락 모양으로 변경하여 클릭 가능함을 알림 */
+    cursor: pointer;
+
+    /* 변화(색상, 크기 등)를 0.2초 동안 부드럽게 애니메이션 처리 */
+    transition: all 0.2s ease-in-out;
+
+    /* 버튼 내부 여백: 사진의 비율에 맞춰 상하(12px), 좌우(28px) 설정 */
+    padding: 12px 28px;
+
+    /* 포커스 시 생기는 기본 외곽선 제거 */
+    outline: none;
+}
+
+/* 마우스를 올렸을 때 (Hover 상태) */
+.Button:hover:not(:disabled) {
+    /* 버튼이 검정색 계열이므로, 밝기를 1.1배 높여서 마우스가 올라갔음을 표현 */
+    filter: brightness(1.1);
+}
+
+/* 버튼을 마우스로 꾹 눌렀을 때 (Active 상태) */
+.Button:active:not(:disabled) {
+    /* 버튼 크기를 0.96배로 아주 살짝 줄여서 실제로 눌리는 듯한 입체감 부여 */
+    transform: scale(0.96);
+}
+
+/* 버튼이 비활성화(사용 불가) 되었을 때 (Disabled 상태) */
+.Button:disabled {
+    /* 배경색을 어두운 회색으로 고정하고 글자색을 흐리게 변경 */
+    background-color: #333333 !important;
+    color: #777777 !important;
+
+    /* 클릭할 수 없다는 의미로 '금지' 모양 커서 표시 */
+    cursor: not-allowed;
+
+    /* 버튼을 전체적으로 반투명하게 만들어 비활성 상태임을 강조 */
+    opacity: 0.6;
+}

@@ -1,0 +1,173 @@
+/* Recommended News Section */
+.recommended-news-section {
+    max-width: 1320px;
+    margin: 40px auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.recommended-header {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    text-align: left;
+}
+
+.recommended-container-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.rec-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.rec-nav-btn:hover {
+    background: #f8f9fa;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.rec-prev {
+    left: -20px;
+}
+
+.rec-next {
+    right: -20px;
+}
+
+/* Horizontal Scroll Container */
+.recommended-scroll-container {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 10px 5px 20px 5px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.recommended-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Card - matches politics-card style */
+.recommended-card {
+    flex: 0 0 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.recommended-card:hover {
+    transform: translateY(-5px);
+}
+
+.recommended-card:hover .recommended-title {
+    text-decoration: underline;
+}
+
+/* Image - matches politics-img style */
+.recommended-img-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.recommended-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recommended-img-wrapper img.logo-fallback {
+    object-fit: contain !important;
+    padding: 20% !important;
+    background-color: #f5f5f5;
+}
+
+/* Info area */
+.recommended-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Title - matches politics-title style */
+.recommended-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.4;
+    color: #000;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Description - matches politics-desc style */
+.recommended-desc {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .recommended-news-section {
+        padding: 0 20px;
+        margin: 30px auto;
+    }
+
+    .recommended-card {
+        flex: 0 0 240px;
+    }
+
+    .recommended-title {
+        font-size: 15px;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

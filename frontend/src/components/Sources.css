@@ -1,0 +1,138 @@
+/* Sources 컴포넌트의 메인 컨테이너 
+   - 배경을 밝은 회색(#f9f9f9)으로 변경하여 기사 본문과 조화
+   - 모서리를 둥글게 처리
+*/
+.Sources {
+  background-color: #f9f9f9;
+  margin: 40px auto 0;
+  /* 상단 여백 추가 */
+  padding: 30px;
+  color: #333333;
+  text-align: left;
+  border-radius: 12px;
+  /* 부드러운 인상 */
+  border: 1px solid #eeeeee;
+  /* 외곽선 아주 연하게 */
+}
+
+/* "참조된 원본 기사" 타이틀 스타일 */
+.Sources .sources-header {
+  font-size: 1.25rem;
+  /* 너무 크지 않게 조정 */
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #111111;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: baseline;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #333;
+  /* 제목 아래 굵은 선으로 뉴스 섹션 느낌 */
+}
+
+/* 기사 개수 (예: (5개)) */
+.Sources .article-count {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666666;
+  margin-left: 8px;
+  letter-spacing: 0;
+}
+
+/* 기사 리스트 (ul) */
+.Sources .sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 개별 기사 항목 (li) */
+.Sources .source-item {
+  display: flex;
+  align-items: flex-start;
+  /* 텍스트가 길어질 경우 위쪽 정렬 */
+  padding: 12px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  border-bottom: 1px solid #e0e0e0;
+  /* 기사 사이 얇은 구분선 */
+}
+
+/* 마지막 항목은 구분선 제거 */
+.Sources .source-item:last-child {
+  border-bottom: none;
+}
+
+/* 언론사명 스타일 */
+.Sources .company-name {
+  font-weight: 700;
+  color: #333333;
+  white-space: nowrap;
+  min-width: 60px;
+  /* 언론사명 공간 확보 */
+}
+
+/* 구분선 (-) */
+.Sources .separator {
+  margin: 0 10px;
+  color: #cccccc;
+}
+
+/* 기사 제목 링크 스타일 */
+.Sources .article-link {
+  color: #444444;
+  text-decoration: none;
+  /* 기본 밑줄 제거 (깔끔하게) */
+  transition: color 0.2s;
+  word-break: keep-all;
+  /* 단어 단위 줄바꿈 */
+}
+
+/* 호버 시 파란색 + 밑줄 (뉴스 사이트 표준 UX) */
+.Sources .article-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 하단 버튼 컨테이너 */
+.Sources .load-more-container {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  /* 중앙 정렬 */
+}
+
+/* 버튼 스타일 (알약 모양) */
+.Sources .load-more-button {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  color: #555555;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 50px;
+  /* 둥근 버튼 */
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* 버튼 호버 효과 */
+.Sources .load-more-button:hover {
+  background-color: #f1f1f1;
+  border-color: #cccccc;
+  color: #111111;
+  transform: translateY(-1px);
+  /* 살짝 떠오르는 효과 */
+}
+
+/* 버튼 내부 화살표 */
+.Sources .load-more-button .arrow {
+  font-size: 0.8rem;
+  margin-right: 6px;
+  color: #888;
+}

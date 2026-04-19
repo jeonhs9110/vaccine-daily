@@ -1,0 +1,48 @@
+.CarouselNewsAnalyzer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5em; /* 폰트 크기에 비례하여 간격 조절 */
+  padding: 1.5em;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: left; /* 요청하신 왼쪽 정렬 적용 */
+  box-sizing: border-box; /* 패딩이 너비/높이에 포함되도록 설정 */
+}
+
+/* 개별 블록 */
+.CarouselNewsAnalyzer .analyzer-block {
+  display: flex;
+  align-items: stretch;
+}
+
+/* 수직 컬러 막대 */
+.CarouselNewsAnalyzer .vertical-bar {
+  width: 4px;
+  margin-right: 1em;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.CarouselNewsAnalyzer .accent-red .vertical-bar { background-color: #ff5f5f; }
+.CarouselNewsAnalyzer .accent-blue .vertical-bar { background-color: #5f6bff; }
+
+/* 텍스트 영역 (em 단위 사용으로 fontSize prop에 반응) */
+.CarouselNewsAnalyzer .text-wrapper h3 {
+  margin: 0 0 0.5em 0;
+  font-size: 1.3em; /* 전달받은 fontSize의 1.3배 */
+  font-weight: bold;
+}
+
+.CarouselNewsAnalyzer .text-wrapper p {
+  margin: 0;
+  font-size: 0.9em; /* 전달받은 fontSize의 0.9배 */
+  line-height: 1.5;
+  opacity: 0.9;
+  
+  /* 긴 텍스트 말줄임 처리 (선택사항) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

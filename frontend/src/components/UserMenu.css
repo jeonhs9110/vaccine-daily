@@ -1,0 +1,106 @@
+.user-menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.user-menu-container .user-info-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 15px;
+}
+
+
+/* Icon Wrapper Box */
+.user-menu-container .user-icon-box {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #6d6d6d;
+  border-left: none;
+  /* Merge with adjacent element */
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: background-color 0.2s;
+}
+
+.user-menu-container .user-info-wrapper:hover .user-icon-box {
+  background-color: #f8f8f8;
+}
+
+.user-menu-container .user-icon {
+  width: 24px;
+  /* Reduced from 35px to fit in box */
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+
+
+.user-menu-container .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 4px;
+  margin-top: 5px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.user-menu-container .menu-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.user-menu-container .user-name-dropdown {
+  font-size: 14px;
+  font-weight: 800;
+  color: #333;
+}
+
+.user-menu-container .menu-item {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.user-menu-container .menu-item:hover {
+  background-color: #f1f1f1;
+}
+
+
+/* Rounded User Menu (Global) */
+.user-menu-container.rounded-user-menu .user-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #6d6d6d;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.user-menu-container.rounded-user-menu .user-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .user-menu-container {
+    display: none !important;
+  }
+}
