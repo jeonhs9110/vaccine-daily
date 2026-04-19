@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/vaccine-daily/static/css/main.1978b6b8.css",
+    "main.js": "/vaccine-daily/static/js/main.8b7a47a1.js",
+    "static/js/453.03346f77.chunk.js": "/vaccine-daily/static/js/453.03346f77.chunk.js",
+    "static/media/check.png": "/vaccine-daily/static/media/check.22d0be7bfd0b6e064ee3.png",
+    "static/media/line.png": "/vaccine-daily/static/media/line.e0e44022608b402891a2.png",
+    "static/media/login.png": "/vaccine-daily/static/media/login.cc6f7e8dda7ac381e04d.png",
+    "static/media/star.png": "/vaccine-daily/static/media/star.89b6c14b5329b6eedeb6.png",
+    "static/media/totalmenu.png": "/vaccine-daily/static/media/totalmenu.6db9fb178330be23c4e9.png",
+    "static/media/government.png": "/vaccine-daily/static/media/government.2b874e0196f2d85b53c7.png",
+    "static/media/livingculture.png": "/vaccine-daily/static/media/livingculture.38862d5ca1408a334f2b.png",
+    "static/media/world.png": "/vaccine-daily/static/media/world.16bf04a3b4dc7fdcbb82.png",
+    "static/media/science.png": "/vaccine-daily/static/media/science.abe6a1ca5315578c23e3.png",
+    "static/media/economics.png": "/vaccine-daily/static/media/economics.18b10dc2bedcea5ecce5.png",
+    "static/media/society.png": "/vaccine-daily/static/media/society.0d32ed7be603d4234686.png",
+    "static/media/Logo.png": "/vaccine-daily/static/media/Logo.fe54bda7ccbc4fd7d1bd.png",
+    "index.html": "/vaccine-daily/index.html",
+    "main.1978b6b8.css.map": "/vaccine-daily/static/css/main.1978b6b8.css.map",
+    "main.8b7a47a1.js.map": "/vaccine-daily/static/js/main.8b7a47a1.js.map",
+    "453.03346f77.chunk.js.map": "/vaccine-daily/static/js/453.03346f77.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1978b6b8.css",
+    "static/js/main.8b7a47a1.js"
+  ]
+}
