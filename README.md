@@ -1,6 +1,23 @@
-# 백신일보
+# 백신일보 (vaccine-daily)
 
 > AI가 10개 언론사의 뉴스를 실시간으로 크롤링하고, 클러스터링 및 분석하여 리포트를 자동 생성하는 뉴스 인텔리전스 플랫폼
+
+### 🌐 라이브 데모: **https://jeonhs9110.github.io/vaccine-daily/**
+
+> 라이브 데모는 GitHub Pages에 호스팅된 **정적 프론트엔드 빌드**입니다.
+> 백엔드(크롤러·클러스터링·LLM 파이프라인)는 실행되지 않으며, 모든 API 응답은
+> 브라우저 내 목(mock) 어댑터가 결정론적인 한국어 더미 데이터로 대체합니다.
+> 전체 스택을 실행하려면 아래 "시작하기" 섹션을 참고하세요.
+
+## 스크린샷
+
+| 메인 | 카테고리 (정치) |
+|------|------------------|
+| ![메인](docs/screenshots/01-main.png) | ![정치](docs/screenshots/02-politics.png) |
+
+| 기사 상세 (오피니언·차트·타임라인·비교) | 검색 결과 |
+|------------------------------------------|-----------|
+| ![기사 상세](docs/screenshots/06-article.png) | ![검색](docs/screenshots/07-search.png) |
 
 PPT 링크: https://docs.google.com/presentation/d/1n3qlZx-QcmbCtOfVL4Ss_9rwqnxXG-3z/edit?usp=sharing&ouid=101202909226412214966&rtpof=true&sd=true
 
